@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hazel Huang — Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111110;--ink-2:#44403C;--ink-3:#78716C;--ink-4:#A8A29E;--bg:#FAFAF9;--bg-2:#F5F5F4;--border:#E7E5E4;--orange:#C2620A;--orange-bg:#FFF7ED;--orange-border:#FED7AA;--blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-border:#BFDBFE;--green:#15803D;--green-bg:#F0FDF4;--green-border:#BBF7D0;--purple:#7C3AED;--purple-bg:#F5F3FF;--purple-border:#DDD6FE;--teal:#0F766E;--teal-bg:#F0FDFA;--teal-border:#99F6E4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,249,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.hero{padding:120px 32px 64px;max-width:1080px;margin:0 auto}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.hero-eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.hero-name{font-family:'Instrument Serif',serif;font-size:clamp(3rem,6vw,5.5rem);line-height:1;letter-spacing:-0.02em;margin-bottom:16px}
+.hero-name em{font-style:italic;color:var(--ink-3)}
+.hero-desc{font-size:1rem;color:var(--ink-3);line-height:1.8;margin-bottom:28px;max-width:400px}
+.hero-ctas{display:flex;gap:10px}
+.btn-dark{display:inline-block;padding:9px 20px;background:var(--ink);color:var(--bg);font-size:0.8rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:opacity .2s}
+.btn-dark:hover{opacity:.85}
+.btn-outline{display:inline-block;padding:9px 20px;border:1px solid var(--border);color:var(--ink-2);font-size:0.8rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:border-color .2s}
+.btn-outline:hover{border-color:var(--ink-2)}
+.hero-right{display:flex;flex-direction:column;gap:10px;padding-top:8px}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.metric-num{font-family:'Instrument Serif',serif;font-size:2rem;line-height:1;letter-spacing:-0.02em;margin-bottom:2px}
+.metric-label{font-size:0.72rem;color:var(--ink-4);font-weight:500;letter-spacing:0.04em}
+.skill-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:0.72rem;font-weight:500;padding:4px 10px;border-radius:20px;border:1px solid var(--border);color:var(--ink-3)}
+.section{padding:80px 32px;max-width:1080px;margin:0 auto}
+.section-full{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section-inner{max-width:1080px;margin:0 auto;padding:0 32px}
+.section-label{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.section-title{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;color:var(--ink);margin-bottom:32px}
+.section-title em{font-style:italic;color:var(--ink-3)}
+.divider{width:100%;height:1px;background:var(--border);margin:0 0 48px}
+.work-stack{display:flex;flex-direction:column;gap:20px}
+.case-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.case-card:hover{box-shadow:0 8px 40px rgba(0,0,0,.07);transform:translateY(-2px)}
+.case-top{padding:24px 28px 20px;border-bottom:1px solid var(--border)}
+.case-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.badge{display:inline-block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:10px}
+.badge-orange{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.badge-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.badge-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.badge-teal{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-border)}
+.case-title{font-family:'Instrument Serif',serif;font-size:1.5rem;color:var(--ink);margin-bottom:4px}
+.case-sub{font-size:0.82rem;color:var(--ink-4);font-style:italic}
+.case-tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.case-tag{font-size:0.68rem;padding:3px 8px;border:1px solid var(--border);border-radius:20px;color:var(--ink-3)}
+.case-body{padding:20px 28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case-section-head{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.case-text{font-size:0.88rem;color:var(--ink-3);line-height:1.75}
+.insight-strip{grid-column:1/-1;border-radius:0 8px 8px 0;padding:12px 16px}
+.insight-head{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px}
+.insight-text{font-family:'Instrument Serif',serif;font-size:1rem;font-style:italic;color:var(--ink);line-height:1.6}
+.metrics-strip{grid-column:1/-1;display:flex;gap:24px;padding-top:16px;border-top:1px solid var(--border);flex-wrap:wrap}
+.m-num{font-family:'Instrument Serif',serif;font-size:1.6rem;line-height:1}
+.m-label{font-size:0.68rem;color:var(--ink-4)}
+.dashboard-embed{grid-column:1/-1;border:1px solid var(--border);border-radius:10px;overflow:hidden;height:420px}
+.dashboard-embed iframe{width:100%;height:100%;border:none}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.gallery-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--border)}
+.exp-list{display:flex;flex-direction:column}
+.exp-row{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--border)}
+.exp-row:last-child{border-bottom:none}
+.exp-period{font-size:0.78rem;color:var(--ink-4);margin-bottom:4px}
+.exp-company{font-size:0.78rem;font-weight:500;color:var(--teal)}
+.exp-title{font-family:'Instrument Serif',serif;font-size:1.2rem;color:var(--ink);margin-bottom:10px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-bullets li{font-size:0.85rem;color:var(--ink-3);line-height:1.65;padding-left:14px;position:relative}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--ink-4);font-size:0.75rem}
+.contact-section{padding:80px 32px;max-width:700px;margin:0 auto;text-align:center}
+.contact-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.1;margin-bottom:12px}
+.contact-title em{font-style:italic;color:var(--ink-3)}
+.contact-desc{font-size:0.95rem;color:var(--ink-3);margin-bottom:32px;line-height:1.75}
+.contact-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:6px;padding:9px 18px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--ink-2);font-size:0.82rem;font-weight:500;transition:border-color .2s}
+.contact-link:hover{border-color:var(--ink)}
+footer{border-top:1px solid var(--border);padding:16px 32px;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:'Instrument Serif',serif;font-size:0.95rem;color:var(--ink-4)}
+.footer-note{font-size:0.72rem;color:var(--ink-4)}
+@media(max-width:768px){
+  .hero,.section,.contact-section{padding-left:16px;padding-right:16px}
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .case-body{grid-template-columns:1fr}
+  .case-top-row{flex-direction:column}
+  .exp-row{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .section-inner{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Hazel Huang</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Marketing × Data × Creative</div>
+      <h1 class="hero-name">Zihong<br><em>(Hazel)</em><br>Huang</h1>
+      <p class="hero-desc">Data-driven marketer with a creative instinct. I translate messy datasets into growth strategy — and insights into ads that actually convert.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-dark">View Work</a>
+        <a href="mailto:HazelHuang1007@ucla.edu" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="metric-row">
+        <div class="metric-card">
+          <div class="metric-num" style="color:var(--orange)">4.0</div>
+          <div class="metric-label">UCLA GPA</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num" style="color:var(--blue)">500K+</div>
+          <div class="metric-label">User records analyzed</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num" style="color:var(--green)">40%</div>
+          <div class="metric-label">Conversion lift</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num" style="color:var(--teal)">$62</div>
+          <div class="metric-label">Best CPA identified</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="case-section-head" style="margin-bottom:10px">Core Skills</div>
+        <div class="skill-chips">
+          <span class="chip">Performance Marketing</span>
+          <span class="chip">Creative Strategy</span>
+          <span class="chip">Funnel Analysis</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Python · SQL · R</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Google Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section-full" id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start">
+      <div>
+        <h2 class="section-title" style="margin-bottom:20px">Data that tells<br><em>stories.</em></h2>
+        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">I sit at the intersection of <strong style="color:var(--ink);font-weight:500">analytics and creativity</strong> — the kind of marketer who reads data tables and writes ad concepts in the same afternoon.</p>
+        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">My background spans conversion funnel analysis, customer segmentation, A/B testing, and performance marketing strategy. I've worked with datasets of 500K+ users, built dashboards that eliminated 15+ hours of manual reporting per week, and developed full creative strategies for AI products.</p>
+        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.85">I'm drawn to roles where insight drives creative direction — where the question isn't just "what does the data say" but "what should we make next."</p>
+      </div>
+      <div>
+        <div class="case-section-head" style="margin-bottom:16px">Education</div>
+        <div style="padding:20px 0;border-bottom:1px solid var(--border)">
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">UCLA</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:1.15rem;color:var(--ink);margin-bottom:3px">M.S. Data Science in Health</div>
+          <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2025 – Jun 2027 · GPA 4.0 / 4.0 · Los Angeles, CA</div>
+        </div>
+        <div style="padding:20px 0">
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">Shenzhen University</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:1.15rem;color:var(--ink);margin-bottom:3px">B.A. Business Administration</div>
+          <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2021 – Jun 2025 · GPA 3.94 / 4.0 · Major Rank #1</div>
+          <div style="font-size:0.78rem;color:var(--ink-4);margin-top:2px">Academic Star Scholarship 2022–2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div class="section" id="work">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Case <em>Studies</em></h2>
+  <div class="divider"></div>
+  <div class="work-stack">
+
+    <!-- LOOPNOTE -->
+    <div class="case-card">
+      <div class="case-top">
+        <div class="case-top-row">
+          <div>
+            <span class="badge badge-orange">Performance Marketing</span>
+            <h3 class="case-title">LoopNote AI — Growth Strategy</h3>
+            <p class="case-sub">Full creative strategy for an AI voice-notes app · Meta + TikTok · 2025</p>
+          </div>
+          <div class="case-tag-row">
+            <span class="case-tag">Competitor Analysis</span>
+            <span class="case-tag">Creative Research</span>
+            <span class="case-tag">Data Analysis</span>
+            <span class="case-tag">Ad Concepts</span>
+            <span class="case-tag">Test Plan</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div>
+          <div class="case-section-head">The Challenge</div>
+          <p class="case-text">LoopNote needed a paid social strategy to drive paid trial starts below $90 CPA on Meta and TikTok — in a crowded AI notetaking market dominated by Otter.ai, Fathom, and Granola.</p>
+        </div>
+        <div>
+          <div class="case-section-head">My Approach</div>
+          <p class="case-text">Analyzed 5 competitors and 8 real benchmark ads across platforms. Read performance data from 10 past creatives to find the lowest cost-per-paid-start format ($62, screen-record demo on TikTok). Developed a creative brief, 3 original ad concepts, and a 2-week $9,000 test plan.</p>
+        </div>
+        <div class="insight-strip" style="border-left:3px solid var(--orange);background:var(--orange-bg)">
+          <div class="insight-head" style="color:var(--orange)">Core Insight</div>
+          <p class="insight-text">"Every competitor lives inside the meeting room. Nobody owns the shower idea, the run thought, the 2am voice memo. That uncontested emotional territory became LoopNote's entire campaign direction."</p>
+        </div>
+        <div class="metrics-strip">
+          <div class="m-item"><div class="m-num" style="color:var(--orange)">5</div><div class="m-label">Competitors analyzed</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--orange)">8</div><div class="m-label">Benchmark ads researched</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--orange)">$62</div><div class="m-label">Best CPA identified</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--orange)">3</div><div class="m-label">Original ad concepts</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--orange)">$9K</div><div class="m-label">Test plan budget</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JINFUZI -->
+    <div class="case-card">
+      <div class="case-top">
+        <div class="case-top-row">
+          <div>
+            <span class="badge badge-blue">Marketing Analytics</span>
+            <h3 class="case-title">Jinfuzi — Conversion Funnel Optimization</h3>
+            <p class="case-sub">Marketing Data Analyst Intern · Apr – Sep 2024 · Shenzhen, China</p>
+          </div>
+          <div class="case-tag-row">
+            <span class="case-tag">Python</span>
+            <span class="case-tag">SQL</span>
+            <span class="case-tag">Tableau</span>
+            <span class="case-tag">A/B Testing</span>
+            <span class="case-tag">Segmentation</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div>
+          <div class="case-section-head">The Challenge</div>
+          <p class="case-text">The marketing team spent 15+ hours per week on manual reporting with no systematic way to identify high-value customer segments or diagnose where leads dropped out of the Xiaohongshu acquisition funnel.</p>
+        </div>
+        <div>
+          <div class="case-section-head">What I Did</div>
+          <p class="case-text">Built customer segmentation models on 500K+ user records using Python and SQL. Designed automated KPI dashboards in Tableau. Conducted A/B testing and multi-step funnel analysis — leading to a 40% lift in lead conversion rate.</p>
+        </div>
+        <div class="insight-strip" style="border-left:3px solid var(--blue);background:var(--blue-bg)">
+          <div class="insight-head" style="color:var(--blue)">Key Finding</div>
+          <p class="insight-text">"The top 8% of users drove 47% of total revenue — but had never been separately targeted in campaign strategy. Segmentation unlocked a completely different acquisition approach."</p>
+        </div>
+        <div class="dashboard-embed">
+          <iframe src="jinfuzi-dashboard.html" title="Jinfuzi Marketing Analytics Dashboard"></iframe>
+        </div>
+        <div class="metrics-strip">
+          <div class="m-item"><div class="m-num" style="color:var(--blue)">500K+</div><div class="m-label">User records analyzed</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--blue)">40%</div><div class="m-label">Conversion lift</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--blue)">75%</div><div class="m-label">Reporting time saved</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--blue)">15h+</div><div class="m-label">Weekly hours freed</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONE DROP -->
+    <div class="case-card">
+      <div class="case-top">
+        <div class="case-top-row">
+          <div>
+            <span class="badge badge-green">Market Research · Startup</span>
+            <h3 class="case-title">One Drop — Sustainable Food Redistribution</h3>
+            <p class="case-sub">Project Leader, Market Research · Sep 2022 – Dec 2023 · Shenzhen, China</p>
+          </div>
+          <div class="case-tag-row">
+            <span class="case-tag">Market Research</span>
+            <span class="case-tag">Competitive Analysis</span>
+            <span class="case-tag">Go-to-Market</span>
+            <span class="case-tag">R · Tableau</span>
+            <span class="case-tag">Campus Marketing</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div>
+          <div class="case-section-head">The Context</div>
+          <p class="case-text">One Drop (一袋临食) is a sustainable food-tech startup connecting consumers with restaurants' surplus food through a "mystery bag" app — reducing food waste while offering affordable meals. I led market research and go-to-market strategy as Project Leader.</p>
+        </div>
+        <div>
+          <div class="case-section-head">What I Did</div>
+          <p class="case-text">Designed and executed mixed-method market research (N=200+ surveys, stakeholder interviews) to assess demand and competitive landscape. Visualized adoption trend data in R and Tableau. Ran campus brand events and led merchant partnership outreach.</p>
+        </div>
+        <div class="insight-strip" style="border-left:3px solid var(--green);background:var(--green-bg)">
+          <div class="insight-head" style="color:var(--green)">Strategic Insight</div>
+          <p class="insight-text">"University campuses represented the highest-density, highest-frequency target segment — students eat 3 meals a day on campus, making them the ideal first market for testing both demand and merchant partnership viability."</p>
+        </div>
+        <div style="grid-column:1/-1">
+          <div class="gallery-grid">
+            <img src="images/onedrop-app-1.png" alt="One Drop app — user discovers nearby surplus food listings" class="gallery-img" onerror="this.src='';this.style.background='var(--green-bg)';this.style.display='block'">
+            <img src="images/onedrop-app-2.png" alt="One Drop merchant dashboard — inventory and sales management" class="gallery-img" onerror="this.src='';this.style.background='var(--green-bg)';this.style.display='block'">
+            <img src="images/onedrop-event.jpg" alt="One Drop campus brand event at Shenzhen University — Hazel (rightmost, peace sign)" class="gallery-img" onerror="this.src='';this.style.background='var(--green-bg)';this.style.display='block'">
+          </div>
+          <p style="font-size:0.72rem;color:var(--ink-4);margin-top:8px;font-style:italic">Left & center: One Drop app interface — surplus food discovery, merchant inventory management. Right: Campus marketing event at Shenzhen University.</p>
+        </div>
+        <div class="metrics-strip">
+          <div class="m-item"><div class="m-num" style="color:var(--green)">200+</div><div class="m-label">Survey respondents</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--green)">25</div><div class="m-label">Members recruited/month</div></div>
+          <div class="m-item"><div class="m-num" style="color:var(--green)">¥100K</div><div class="m-label">Projected overstock reduction/yr</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-full" id="experience">
+  <div class="section-inner">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Where I've <em>worked.</em></h2>
+    <div class="divider"></div>
+    <div class="exp-list">
+
+      <div class="exp-row">
+        <div>
+          <div class="exp-period">Apr 2024 – Sep 2024</div>
+          <div class="exp-company">Shenzhen Jinfuzi Network Technology</div>
+        </div>
+        <div>
+          <div class="exp-title">Marketing Data Analyst Intern</div>
+          <ul class="exp-bullets">
+            <li>Built customer segmentation models (Python, SQL) on 500K+ user records to identify high-value cohorts; findings directly shaped targeting strategy for digital campaigns.</li>
+            <li>Designed automated KPI dashboards (Excel, Tableau) tracking traffic, engagement, conversion rate, and campaign ROI — eliminating 15+ hours/week of manual reporting (75% reduction).</li>
+            <li>Conducted A/B testing and multi-step conversion funnel analysis; recommended content optimizations that increased lead conversion rate by 40%.</li>
+            <li>Delivered weekly business analysis reports synthesizing campaign performance and customer behavior trends to inform go-to-market strategy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div>
+          <div class="exp-period">Feb 2024 – Jun 2025</div>
+          <div class="exp-company">Int'l Students Entrepreneurship & Employment Union</div>
+        </div>
+        <div>
+          <div class="exp-title">Chairperson — Digital Marketing Lead</div>
+          <ul class="exp-bullets">
+            <li>Led digital content marketing campaigns producing 10+ pieces of content per cycle across social media, articles, and video to drive career development program awareness.</li>
+            <li>Designed and executed a QR-based mobile survey campaign collecting 700+ responses; analyzed data to develop targeted, data-driven engagement initiatives and launched a Peer Buddy Program.</li>
+            <li>Led and mentored a 20+ person student marketing team, managing content calendars, campaign timelines, and performance evaluation.</li>
+            <li>Organized large-scale international cultural festivals featuring 20+ countries, coordinating logistics, vendors, and multi-team execution.</li>
+          </ul>
+          <div class="gallery-grid" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
+            <img src="images/iseeu-china-pavilion.png" alt="China pavilion at ISEEU International Cultural Festival" class="gallery-img" onerror="this.style.background='var(--purple-bg)'">
+            <img src="images/iseeu-outdoor.png" alt="ISEEU outdoor event — international students gather" class="gallery-img" onerror="this.style.background='var(--purple-bg)'">
+            <img src="images/iseeu-sudan.jpg" alt="Sudan pavilion group photo at international cultural festival" class="gallery-img" onerror="this.style.background='var(--purple-bg)'">
+            <img src="images/iseeu-dragon.png" alt="Dragon dance performance at ISEEU cultural festival" class="gallery-img" onerror="this.style.background='var(--purple-bg)'">
+          </div>
+          <p style="font-size:0.72rem;color:var(--ink-4);margin-top:8px;font-style:italic">International cultural festivals organized under ISEEU — featuring 20+ countries, traditional performances, and cross-cultural exchange.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div>
+          <div class="exp-period">Jul 2023 – Sep 2023</div>
+          <div class="exp-company">Shenzhen RWD Life Technology</div>
+        </div>
+        <div>
+          <div class="exp-title">Overseas Marketing Intern</div>
+          <ul class="exp-bullets">
+            <li>Supported international marketing operations and managed cross-cultural communications with 15+ overseas clients; contributed to B2B customer acquisition strategy for overseas expansion.</li>
+            <li>Analyzed sales operations and customer workflows to identify process bottlenecks, improving order processing efficiency by 20%.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="section-label" style="text-align:center">Get In Touch</div>
+  <h2 class="contact-title">Let's make something <em>sharp.</em></h2>
+  <p class="contact-desc">Open to marketing and growth opportunities — internships, part-time roles, or project collaborations at the intersection of data and creative strategy.</p>
+  <div class="contact-row">
+    <a href="mailto:HazelHuang1007@ucla.edu" class="contact-link">✉ HazelHuang1007@ucla.edu</a>
+    <a href="https://linkedin.com/in/zihong-huang-9288a4385" class="contact-link" target="_blank">↗ LinkedIn</a>
+    <a href="https://github.com/uhaizeol" class="contact-link" target="_blank">↗ GitHub</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-name">Hazel Huang</span>
+  <span class="footer-note">Data × Creative × Strategy · Los Angeles, CA</span>
+</footer>
+
+</body>
+</html>
