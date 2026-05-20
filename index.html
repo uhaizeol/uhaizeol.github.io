@@ -213,7 +213,7 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
     <div class="hero-right">
       <div class="metric-grid">
         <div class="metric-card mc-o"><div class="metric-num" style="color:var(--orange)">4.0</div><div class="metric-label">UCLA GPA</div></div>
-        <div class="metric-card mc-b"><div class="metric-num" style="color:var(--blue)">500K+</div><div class="metric-label">User records</div></div>
+        <div class="metric-card mc-b"><div class="metric-num" style="color:var(--orange)">500K+</div><div class="metric-label">User records</div></div>
         <div class="metric-card mc-g"><div class="metric-num" style="color:var(--green)">40%</div><div class="metric-label">Conversion lift</div></div>
         <div class="metric-card mc-t"><div class="metric-num" style="color:var(--teal)">$62</div><div class="metric-label">Best CPA found</div></div>
       </div>
@@ -259,9 +259,9 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
   <div>
     <div class="sec-label">About</div>
     <h2 class="sec-title">Data that<br>tells <em>stories.</em></h2>
-    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">I sit at the intersection of <strong style="color:var(--ink);font-weight:600">analytics and creativity</strong> — the kind of marketer who reads data tables and writes ad concepts in the same afternoon.</p>
-    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">My work spans conversion funnel analysis, customer segmentation, statistical modeling, and performance marketing strategy. I've worked with 500K+ user datasets, built clinical analytics dashboards in R Shiny, and developed full creative strategies for AI products.</p>
-    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85">I'm drawn to roles where insight drives creative direction — where the question isn't just "what does the data say" but "what should we make next."</p>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">I sit at the intersection of <strong style="color:var(--ink);font-weight:600">analytics and creativity</strong> — the kind of analyst who reads data tables and writes creative strategy in the same afternoon.</p>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">My background spans conversion funnel analysis, customer segmentation, statistical modeling, and growth strategy. I've worked with datasets of 500K+ users, built clinical analytics dashboards in R Shiny, and developed full creative strategies for AI products.</p>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85">I'm drawn to roles where insight drives direction — where the question isn't just "what does the data say" but "what should we make next."</p>
   </div>
   <div>
     <div class="mini-label" style="margin-bottom:16px">Education</div>
@@ -286,8 +286,8 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
 <div class="manifesto">
   <div class="manifesto-inner">
     <div class="manifesto-label">The Approach</div>
-    <div class="manifesto-quote">"Good data tells you what happened. Good creative decides what happens next. I do both."</div>
-    <div class="manifesto-sub">Performance marketing is not about spending more — it's about finding the emotional territory nobody else has claimed, then testing whether that territory converts.</div>
+    <div class="manifesto-quote">"Good data tells you what happened. Good strategy decides what happens next. I do both."</div>
+    <div class="manifesto-sub">Growth is not about spending more — it's about finding the territory nobody else has claimed, then validating whether that territory converts. Rigor gets you to the insight. Creativity gets the insight to actually matter.</div>
   </div>
 </div>
 
@@ -349,7 +349,11 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
         <div><div class="ch">What I Did</div><p class="ct">Extracted and queried 50,000+ ICU patient records using SQL. Applied logistic regression and mixed-effects models. Built an interactive R Shiny dashboard with ggplot2 visualizations for dynamic exploration of patient vitals and clinical outcomes.</p></div>
         <div class="ins" style="border-left:3px solid var(--teal);background:var(--teal-bg)">
           <div class="ins-h" style="color:var(--teal)">Key Finding</div>
-          <p class="ins-t">"Identified three significant predictor variables for ICU outcome variability. The R Shiny dashboard translated 50K+ raw clinical records into a tool stakeholders could actually use — the same translation challenge I apply to marketing data."</p>
+          <p class="ins-t">"Identified three significant predictor variables for ICU outcome variability. The R Shiny dashboard translated 50K+ raw clinical records into a tool stakeholders could actually use — the same translation challenge I apply to marketing and business data."</p>
+        </div>
+        <div style="grid-column:1/-1">
+          <img src="images/rshiny.jpg" alt="R Shiny ICU Dashboard — Hypo-Alert System v2.5" style="width:100%;border-radius:10px;border:1px solid var(--border);display:block" onerror="this.style.display='none'">
+          <p style="font-size:0.69rem;color:var(--ink-4);font-style:italic;margin-top:6px">Hypo-Alert System v2.5 — Interactive R Shiny dashboard for ICU hypotension risk prediction. Built on MIMIC-IV dataset (50K+ patient records).</p>
         </div>
         <div class="mets">
           <div><div class="mn" style="color:var(--teal)">50K+</div><div class="ml">ICU records queried</div></div>
@@ -604,15 +608,16 @@ fs.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x
     <div class="contact-right">
       <p class="contact-desc">Open to marketing and growth opportunities — internships, part-time roles, or project collaborations at the intersection of data and creative strategy.</p>
       <div class="contact-btns">
-        <a href="mailto:HazelHuang1007@ucla.edu" class="cb-white" onclick="return true">✉ Email Me</a>
+        <a href="mailto:HazelHuang1007@ucla.edu" class="cb-white">✉ Email Me</a>
+        <button onclick="navigator.clipboard.writeText('HazelHuang1007@ucla.edu').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='Copy Email',2000)})" class="cb-outline-w" style="cursor:pointer;border:none;font-family:inherit">Copy Email</button>
         <a href="https://linkedin.com/in/zihong-huang-9288a4385" class="cb-outline-w" target="_blank">↗ LinkedIn</a>
         <a href="https://github.com/uhaizeol" class="cb-outline-w" target="_blank">↗ GitHub</a>
-        <a href="files/Zihong Huang(Hazel)_Resume.pdf" class="cb-outline-w" download>↓ Resume PDF</a>
+        <a href="files/Hazel_Huang_Resume.pdf" class="cb-outline-w" download>↓ Resume PDF</a>
       </div>
       <div class="contact-info">
-        <div class="ci"><span class="ci-icon">✉</span><span>HazelHuang1007@ucla.edu</span></div>
-        <div class="ci"><span class="ci-icon">📞</span><span>+1 (424) 467-6727</span></div>
-        <div class="ci"><span class="ci-icon">📍</span><span>Los Angeles, CA · Open to relocation</span></div>
+        <div class="ci"><span class="ci-icon" style="color:rgba(255,255,255,.5);font-style:normal">✉</span><span>HazelHuang1007@ucla.edu</span></div>
+        <div class="ci"><span class="ci-icon" style="font-size:0.8rem;opacity:.6">☎</span><span>+1 (424) 467-6727</span></div>
+        <div class="ci"><span class="ci-icon" style="font-size:0.8rem;opacity:.6">◎</span><span>Los Angeles, CA · Open to relocation</span></div>
       </div>
     </div>
   </div>
