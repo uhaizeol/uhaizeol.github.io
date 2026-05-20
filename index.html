@@ -153,7 +153,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .contact-title em{font-style:italic;opacity:.7}
 .contact-right{}
 .contact-desc{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:28px}
-.contact-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.contact-btns{display:flex;gap:8px;flex-wrap:nowrap;margin-bottom:28px;overflow-x:auto}
 .cb-white{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#fff;color:var(--orange);font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:opacity .15s}
 .cb-white:hover{opacity:.9}
 .cb-outline-w{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border:1.5px solid rgba(255,255,255,.4);color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:all .15s}
@@ -212,9 +212,9 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
     </div>
     <div class="hero-right">
       <div class="metric-grid">
-        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">700+</div><div class="metric-label">Survey responses led</div></div>
-        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">500K+</div><div class="metric-label">User records</div></div>
-        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">40%</div><div class="metric-label">Conversion lift</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">500K+</div><div class="metric-label">User records analyzed</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">50K+</div><div class="metric-label">ICU records queried</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">40%</div><div class="metric-label">Conversion lift achieved</div></div>
         <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">$62</div><div class="metric-label">Best CPA found</div></div>
       </div>
       <div class="skill-card">
@@ -236,20 +236,20 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
 <div class="stats-strip">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-num">500K+</div>
-      <div class="stat-desc">User records<br>analyzed in production</div>
+      <div class="stat-num">75%</div>
+      <div class="stat-desc">Reporting time<br>eliminated at Jinfuzi</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">40%</div>
-      <div class="stat-desc">Lead conversion<br>lift at Jinfuzi</div>
+      <div class="stat-num">700+</div>
+      <div class="stat-desc">Survey responses<br>led & analyzed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">50K+</div>
-      <div class="stat-desc">ICU patient records<br>queried at UCLA</div>
+      <div class="stat-num">20+</div>
+      <div class="stat-desc">Team members<br>managed & mentored</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">4.0</div>
-      <div class="stat-desc">GPA at UCLA<br>M.S. Data Science</div>
+      <div class="stat-num">3</div>
+      <div class="stat-desc">Industries: tech,<br>healthcare, sustainability</div>
     </div>
   </div>
 </div>
@@ -350,10 +350,6 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
         <div class="ins" style="border-left:3px solid var(--teal);background:var(--teal-bg)">
           <div class="ins-h" style="color:var(--teal)">Key Finding</div>
           <p class="ins-t">"Identified three significant predictor variables for ICU outcome variability. The R Shiny dashboard translated 50K+ raw clinical records into a tool stakeholders could actually use — the same translation challenge I apply to marketing and business data."</p>
-        </div>
-        <div style="grid-column:1/-1">
-          <img src="images/rshiny.jpg" alt="R Shiny ICU Dashboard — Hypo-Alert System v2.5" style="width:100%;border-radius:10px;border:1px solid var(--border);display:block" onerror="this.style.display='none'">
-          <p style="font-size:0.69rem;color:var(--ink-4);font-style:italic;margin-top:6px">Hypo-Alert System v2.5 — Interactive R Shiny dashboard for ICU hypotension risk prediction. Built on MIMIC-IV dataset (50K+ patient records).</p>
         </div>
         <div class="db-embed"><iframe src="mimic-dashboard.html" title="MIMIC-IV Hypo-Alert Interactive Dashboard"></iframe></div>
         <div class="mets">
