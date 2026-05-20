@@ -151,9 +151,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .ci a{color:rgba(255,255,255,.45);text-decoration:none}
 .ci-icon{font-size:0.82rem;opacity:.5;width:16px}
 
-footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
-.fn{font-family:'Instrument Serif',serif;font-size:0.9rem;color:rgba(255,255,255,.25)}
-.fnt{font-size:0.7rem;color:rgba(255,255,255,.18)}
+footer{background:#6B5040;border-top:1px solid rgba(255,255,255,.12);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
+.fn{font-family:'Instrument Serif',serif;font-size:0.9rem;color:rgba(255,255,255,.75)}
+.fnt{font-size:0.7rem;color:rgba(255,255,255,.55)}
 
 @media(max-width:768px){
   nav,footer{padding:0 16px}
@@ -583,6 +583,14 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
 </div>
 
 <footer>
+  <svg aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="fg"><feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+      <filter id="fv"><feTurbulence type="turbulence" baseFrequency="0.013 0.007" numOctaves="6" seed="23"/><feColorMatrix type="matrix" values="0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0 0.90  0 0 0 12 -5"/></filter>
+    </defs>
+    <rect width="100%" height="100%" filter="url(#fv)" opacity="0.07"/>
+    <rect width="100%" height="100%" filter="url(#fg)" opacity="0.04"/>
+  </svg>
   <span class="fn">Hazel Huang</span>
   <span class="fnt">Data · Creative · Strategy · Los Angeles, CA</span>
 </footer>
