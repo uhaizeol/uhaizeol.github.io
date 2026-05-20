@@ -195,7 +195,9 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
         <a href="#contact" class="btn-outline">Get in Touch</a>
       </div>
     </div>
-    <div class="hero-right">
+    <div class="hero-right" style="position:relative">
+      <div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Instrument Serif',serif;font-size:210px;font-weight:400;color:rgba(0,0,0,0.045);line-height:1;white-space:nowrap;pointer-events:none;user-select:none;z-index:0;letter-spacing:-.02em;font-style:italic">HH</div>
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:8px">
       <div class="metric-grid">
         <div class="metric-card"><div class="metric-num">500K+</div><div class="metric-label">User records analyzed</div></div>
         <div class="metric-card"><div class="metric-num">50K+</div><div class="metric-label">ICU records queried</div></div>
@@ -212,6 +214,7 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
           <span class="chip">Python · SQL · R</span>
           <span class="chip">Tableau · R Shiny</span>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -514,7 +517,7 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
 </div>
 
 <!-- FILM STRIP -->
-<div class="film-section" id="creative" style="background:#16100A;position:relative;overflow:hidden">
+<div class="film-section" id="creative" style="background:#2E2018;position:relative;overflow:hidden">
   <!-- marble grain texture layers -->
   <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <defs>
@@ -527,13 +530,13 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
         <feColorMatrix type="matrix" values="0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0 0.90  0 0 0 12 -5" in="t"/>
       </filter>
     </defs>
-    <rect width="100%" height="100%" filter="url(#veins)" opacity="0.10"/>
-    <rect width="100%" height="100%" filter="url(#grain)" opacity="0.06"/>
+    <rect width="100%" height="100%" filter="url(#veins)" opacity="0.07"/>
+    <rect width="100%" height="100%" filter="url(#grain)" opacity="0.04"/>
   </svg>
   <div class="film-header">
-    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">Beyond Work</div>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#F5F2EE;margin-bottom:14px">Photography <em style="font-style:italic;color:rgba(255,255,255,.3)">& Visual</em></h2>
-    <p style="font-size:0.96rem;color:rgba(255,255,255,.4);line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
+    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px">Beyond Work</div>
+    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#F5F2EE;margin-bottom:14px">Photography <em style="font-style:italic;color:rgba(255,255,255,.55)">& Visual</em></h2>
+    <p style="font-size:0.96rem;color:rgba(255,255,255,.65);line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
   </div>
   <div class="film-perf-row" style="margin-bottom:4px">
     <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
@@ -556,7 +559,7 @@ footer{background:#1A0F0A;border-top:1px solid rgba(255,255,255,.06);padding:16p
 </div>
 
 <!-- CONTACT -->
-<div class="contact-section" id="contact" style="background:linear-gradient(135deg,#1A0F0A 0%,#2C1810 40%,#1A0F0A 100%)">
+<div class="contact-section" id="contact" style="background:linear-gradient(135deg,#1A0F0A 0%,#2C1810 40%,#1A0F0A 100%);position:relative;overflow:hidden"><div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse at center,rgba(245,242,238,0.07) 0%,rgba(245,242,238,0.03) 35%,transparent 70%);pointer-events:none;border-radius:50%"></div>
   <div class="contact-inner">
     <div>
       <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px">Get In Touch</div>

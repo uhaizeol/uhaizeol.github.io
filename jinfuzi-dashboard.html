@@ -9,13 +9,13 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #F8F7F5;
-    color: #1C1810;
+    background: #F8F9FA;
+    color: #1C1C1E;
     font-size: 13px;
   }
   .header {
     background: #fff;
-    border-bottom: 1px solid #E8E4DF;
+    border-bottom: 1px solid #E5E7EB;
     padding: 14px 24px;
     display: flex;
     justify-content: space-between;
@@ -25,22 +25,19 @@
   .logo {
     font-size: 14px;
     font-weight: 600;
-    color: #1C1810;
+    color: #1C1C1E;
     letter-spacing: -0.01em;
   }
-  .logo span { color: #1D4ED8; }
+  .logo span { color: #6366F1; }
   .period-badge {
     font-size: 11px;
     font-weight: 500;
     padding: 3px 10px;
-    background: #F8F7F5;
-    color: #1D4ED8;
+    background: #EEF2FF;
+    color: #4F46E5;
     border-radius: 20px;
   }
-  .header-right {
-    font-size: 11px;
-    color: #9A928E;
-  }
+  .header-right { font-size: 11px; color: #9CA3AF; }
   .main { padding: 20px 24px; }
   .kpi-grid {
     display: grid;
@@ -50,152 +47,44 @@
   }
   .kpi-card {
     background: #fff;
-    border: 1px solid #E8E4DF;
+    border: 1px solid #E5E7EB;
     border-radius: 10px;
     padding: 14px 16px;
   }
-  .kpi-label {
-    font-size: 10px;
-    font-weight: 500;
-    color: #9A928E;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 6px;
-  }
-  .kpi-value {
-    font-size: 22px;
-    font-weight: 600;
-    color: #1C1810;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .kpi-change {
-    font-size: 11px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-  }
-  .up { color: #6B8F71; }
-  .down { color: #EF4444; }
-  .charts-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  .chart-card {
-    background: #fff;
-    border: 1px solid #E8E4DF;
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .chart-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: #1C1810;
-    margin-bottom: 4px;
-  }
-  .chart-sub {
-    font-size: 10px;
-    color: #9A928E;
-    margin-bottom: 14px;
-  }
-  .bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-  }
-  .funnel-card {
-    background: #fff;
-    border: 1px solid #E8E4DF;
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .funnel-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .funnel-bar-wrap {
-    flex: 1;
-    height: 6px;
-    background: #F3F4F6;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .funnel-bar {
-    height: 100%;
-    border-radius: 3px;
-  }
-  .funnel-label { font-size: 11px; color: #5C524E; width: 90px; }
-  .funnel-num { font-size: 11px; font-weight: 600; color: #1C1810; width: 55px; text-align: right; }
-  .seg-card {
-    background: #fff;
-    border: 1px solid #E8E4DF;
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .seg-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #F3F4F6;
-  }
+  .kpi-label { font-size: 10px; font-weight: 500; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .kpi-value { font-size: 22px; font-weight: 600; color: #1C1C1E; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .kpi-change { font-size: 11px; font-weight: 500; display: flex; align-items: center; gap: 3px; }
+  .up { color: #10B981; } .down { color: #EF4444; }
+  .charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .chart-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 16px; }
+  .chart-title { font-size: 12px; font-weight: 600; color: #1C1C1E; margin-bottom: 4px; }
+  .chart-sub { font-size: 10px; color: #9CA3AF; margin-bottom: 14px; }
+  .bottom-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .funnel-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 16px; }
+  .funnel-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .funnel-bar-wrap { flex: 1; height: 6px; background: #F3F4F6; border-radius: 3px; overflow: hidden; }
+  .funnel-bar { height: 100%; border-radius: 3px; }
+  .funnel-label { font-size: 11px; color: #6B7280; width: 90px; }
+  .funnel-num { font-size: 11px; font-weight: 600; color: #1C1C1E; width: 55px; text-align: right; }
+  .seg-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 16px; }
+  .seg-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #F3F4F6; }
   .seg-row:last-child { border-bottom: none; }
-  .seg-name { font-size: 11px; color: #2C2420; font-weight: 500; }
-  .seg-badge {
-    font-size: 10px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 20px;
-  }
-  .seg-share { font-size: 11px; font-weight: 600; color: #1C1810; }
-  .note-card {
-    background: #fff;
-    border: 1px solid #E8E4DF;
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .note-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #F3F4F6;
-  }
+  .seg-name { font-size: 11px; color: #374151; font-weight: 500; }
+  .seg-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
+  .seg-share { font-size: 11px; font-weight: 600; color: #1C1C1E; }
+  .note-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 16px; }
+  .note-item { padding: 10px 0; border-bottom: 1px solid #F3F4F6; }
   .note-item:last-child { border-bottom: none; }
-  .note-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 4px;
-  }
-  .note-name { font-size: 11px; font-weight: 500; color: #1C1810; max-width: 160px; }
-  .note-ctr {
-    font-size: 11px;
-    font-weight: 600;
-    color: #1D4ED8;
-  }
-  .note-meta { font-size: 10px; color: #9A928E; }
-  .note-bar-wrap {
-    height: 3px;
-    background: #F3F4F6;
-    border-radius: 2px;
-    margin-top: 6px;
-    overflow: hidden;
-  }
-  .note-bar { height: 100%; border-radius: 2px; background: #1D4ED8; }
-  .disclaimer {
-    margin-top: 12px;
-    font-size: 10px;
-    color: #D1D5DB;
-    text-align: center;
-  }
+  .note-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+  .note-name { font-size: 11px; font-weight: 500; color: #1C1C1E; max-width: 160px; }
+  .note-ctr { font-size: 11px; font-weight: 600; color: #6366F1; }
+  .note-meta { font-size: 10px; color: #9CA3AF; }
+  .note-bar-wrap { height: 3px; background: #F3F4F6; border-radius: 2px; margin-top: 6px; overflow: hidden; }
+  .note-bar { height: 100%; border-radius: 2px; background: #6366F1; }
+  .disclaimer { margin-top: 12px; font-size: 10px; color: #D1D5DB; text-align: center; }
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-left">
     <div class="logo">Jin<span>fuzi</span> Analytics</div>
@@ -203,39 +92,14 @@
   </div>
   <div class="header-right">Simulated data for portfolio use · Real structure from campaign analytics</div>
 </div>
-
 <div class="main">
-
-  <!-- KPI ROW -->
   <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Total Spend</div>
-      <div class="kpi-value">¥318K</div>
-      <div class="kpi-change up">↑ 12% vs prev period</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Impressions</div>
-      <div class="kpi-value">2.4M</div>
-      <div class="kpi-change up">↑ 28% vs prev period</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Click-Through Rate</div>
-      <div class="kpi-value">4.8%</div>
-      <div class="kpi-change up">↑ 0.6pp vs prev period</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Lead Cost (CPL)</div>
-      <div class="kpi-value">¥156</div>
-      <div class="kpi-change down">↓ 18% vs prev period</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Conversion Rate</div>
-      <div class="kpi-value">2.3%</div>
-      <div class="kpi-change up">↑ 40% vs baseline</div>
-    </div>
+    <div class="kpi-card"><div class="kpi-label">Total Spend</div><div class="kpi-value">¥318K</div><div class="kpi-change up">↑ 12% vs prev period</div></div>
+    <div class="kpi-card"><div class="kpi-label">Impressions</div><div class="kpi-value">2.4M</div><div class="kpi-change up">↑ 28% vs prev period</div></div>
+    <div class="kpi-card"><div class="kpi-label">Click-Through Rate</div><div class="kpi-value">4.8%</div><div class="kpi-change up">↑ 0.6pp vs prev period</div></div>
+    <div class="kpi-card"><div class="kpi-label">Lead Cost (CPL)</div><div class="kpi-value">¥156</div><div class="kpi-change down">↓ 18% vs prev period</div></div>
+    <div class="kpi-card"><div class="kpi-label">Conversion Rate</div><div class="kpi-value">2.3%</div><div class="kpi-change up">↑ 40% vs baseline</div></div>
   </div>
-
-  <!-- CHARTS -->
   <div class="charts-grid">
     <div class="chart-card">
       <div class="chart-title">Daily Spend vs. Leads Generated</div>
@@ -248,197 +112,76 @@
       <canvas id="sourceChart" height="130"></canvas>
     </div>
   </div>
-
-  <!-- BOTTOM -->
   <div class="bottom-grid">
-
-    <!-- FUNNEL -->
     <div class="funnel-card">
       <div class="chart-title">Conversion Funnel</div>
       <div class="chart-sub" style="margin-bottom:14px">Impressions → Paid client</div>
-      <div class="funnel-row">
-        <div class="funnel-label">Impressions</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;background:#7A6A64"></div></div>
-        <div class="funnel-num">2,412K</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Clicks</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:48%;background:#9A8E88"></div></div>
-        <div class="funnel-num">115.8K</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">DM Inquiries</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:22%;background:#B8B0AC"></div></div>
-        <div class="funnel-num">2,038</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Qualified Leads</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:10%;background:#D4CFC9"></div></div>
-        <div class="funnel-num">842</div>
-      </div>
-      <div class="funnel-row" style="margin-bottom:0">
-        <div class="funnel-label">Paid Clients</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:4%;background:#F8F7F5"></div></div>
-        <div class="funnel-num">56</div>
-      </div>
+      <div class="funnel-row"><div class="funnel-label">Impressions</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;background:#6366F1"></div></div><div class="funnel-num">2,412K</div></div>
+      <div class="funnel-row"><div class="funnel-label">Clicks</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:48%;background:#818CF8"></div></div><div class="funnel-num">115.8K</div></div>
+      <div class="funnel-row"><div class="funnel-label">DM Inquiries</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:22%;background:#A5B4FC"></div></div><div class="funnel-num">2,038</div></div>
+      <div class="funnel-row"><div class="funnel-label">Qualified Leads</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:10%;background:#C7D2FE"></div></div><div class="funnel-num">842</div></div>
+      <div class="funnel-row" style="margin-bottom:0"><div class="funnel-label">Paid Clients</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:4%;background:#E0E7FF"></div></div><div class="funnel-num">56</div></div>
     </div>
-
-    <!-- SEGMENTS -->
     <div class="seg-card">
       <div class="chart-title">Customer Segments</div>
       <div class="chart-sub" style="margin-bottom:14px">High-value cohort analysis · 500K+ records</div>
-      <div class="seg-row">
-        <div class="seg-name">High-value (Top 8%)</div>
-        <span class="seg-badge" style="background:#F8F7F5;color:#1D4ED8">Priority</span>
-        <div class="seg-share">47%</div>
-      </div>
-      <div class="seg-row">
-        <div class="seg-name">Mid-value (25–40F)</div>
-        <span class="seg-badge" style="background:#F0FDF4;color:#16A34A">Growth</span>
-        <div class="seg-share">31%</div>
-      </div>
-      <div class="seg-row">
-        <div class="seg-name">New leads (18–25F)</div>
-        <span class="seg-badge" style="background:#FEF3C7;color:#D97706">Nurture</span>
-        <div class="seg-share">14%</div>
-      </div>
-      <div class="seg-row">
-        <div class="seg-name">Reactivation pool</div>
-        <span class="seg-badge" style="background:#F9FAFB;color:#9A928E">Watch</span>
-        <div class="seg-share">8%</div>
-      </div>
-      <div style="margin-top:14px;padding:10px 12px;background:#F8F7F5;border-radius:8px;">
-        <div style="font-size:10px;font-weight:500;color:#1D4ED8;margin-bottom:3px">Key Finding</div>
-        <div style="font-size:11px;color:#1E40AF;line-height:1.5">Top 8% of users drove 47% of total revenue — previously untargeted in campaign strategy.</div>
+      <div class="seg-row"><div class="seg-name">High-value (Top 8%)</div><span class="seg-badge" style="background:#EEF2FF;color:#4F46E5">Priority</span><div class="seg-share">47%</div></div>
+      <div class="seg-row"><div class="seg-name">Mid-value (25–40F)</div><span class="seg-badge" style="background:#F0FDF4;color:#16A34A">Growth</span><div class="seg-share">31%</div></div>
+      <div class="seg-row"><div class="seg-name">New leads (18–25F)</div><span class="seg-badge" style="background:#FEF3C7;color:#D97706">Nurture</span><div class="seg-share">14%</div></div>
+      <div class="seg-row"><div class="seg-name">Reactivation pool</div><span class="seg-badge" style="background:#F9FAFB;color:#9CA3AF">Watch</span><div class="seg-share">8%</div></div>
+      <div style="margin-top:14px;padding:10px 12px;background:#EEF2FF;border-radius:8px;">
+        <div style="font-size:10px;font-weight:500;color:#4F46E5;margin-bottom:3px">Key Finding</div>
+        <div style="font-size:11px;color:#4338CA;line-height:1.5">Top 8% of users drove 47% of total revenue — previously untargeted in campaign strategy.</div>
       </div>
     </div>
-
-    <!-- TOP CONTENT -->
     <div class="note-card">
       <div class="chart-title">Top Performing Content</div>
       <div class="chart-sub" style="margin-bottom:10px">By click-through rate</div>
-      <div class="note-item">
-        <div class="note-top">
-          <div class="note-name">Commercial annuity — education series</div>
-          <div class="note-ctr">8.8%</div>
-        </div>
-        <div class="note-meta">Science explainer · 46K impressions</div>
-        <div class="note-bar-wrap"><div class="note-bar" style="width:100%"></div></div>
-      </div>
-      <div class="note-item">
-        <div class="note-top">
-          <div class="note-name">5-year savings plan — ranking list</div>
-          <div class="note-ctr">7.2%</div>
-        </div>
-        <div class="note-meta">List format · 38K impressions</div>
-        <div class="note-bar-wrap"><div class="note-bar" style="width:82%"></div></div>
-      </div>
-      <div class="note-item">
-        <div class="note-top">
-          <div class="note-name">HK insurance — lump sum product</div>
-          <div class="note-ctr">6.1%</div>
-        </div>
-        <div class="note-meta">Product feature · 29K impressions</div>
-        <div class="note-bar-wrap"><div class="note-bar" style="width:69%"></div></div>
-      </div>
-      <div class="note-item">
-        <div class="note-top">
-          <div class="note-name">Wealth preservation — video</div>
-          <div class="note-ctr">5.4%</div>
-        </div>
-        <div class="note-meta">Video · 22K impressions</div>
-        <div class="note-bar-wrap"><div class="note-bar" style="width:61%"></div></div>
-      </div>
+      <div class="note-item"><div class="note-top"><div class="note-name">Commercial annuity — education series</div><div class="note-ctr">8.8%</div></div><div class="note-meta">Science explainer · 46K impressions</div><div class="note-bar-wrap"><div class="note-bar" style="width:100%"></div></div></div>
+      <div class="note-item"><div class="note-top"><div class="note-name">5-year savings plan — ranking list</div><div class="note-ctr">7.2%</div></div><div class="note-meta">List format · 38K impressions</div><div class="note-bar-wrap"><div class="note-bar" style="width:82%"></div></div></div>
+      <div class="note-item"><div class="note-top"><div class="note-name">HK insurance — lump sum product</div><div class="note-ctr">6.1%</div></div><div class="note-meta">Product feature · 29K impressions</div><div class="note-bar-wrap"><div class="note-bar" style="width:69%"></div></div></div>
+      <div class="note-item"><div class="note-top"><div class="note-name">Wealth preservation — video</div><div class="note-ctr">5.4%</div></div><div class="note-meta">Video · 22K impressions</div><div class="note-bar-wrap"><div class="note-bar" style="width:61%"></div></div></div>
     </div>
-
   </div>
-
   <div class="disclaimer">* All figures are simulated for portfolio purposes. Dashboard structure mirrors real Xiaohongshu campaign analytics from internship at Shenzhen Jinfuzi Network Technology Co., Ltd. (Apr–Sep 2024).</div>
-
 </div>
-
 <script>
 const labels = ['May W3','May W4','Jun W1','Jun W2','Jun W3','Jun W4','Jul W1','Jul W2','Jul W3','Jul W4'];
 const spend = [18200,24600,31400,28900,35200,42100,38700,45300,39800,34100];
 const leads = [28,41,58,52,67,89,74,96,81,63];
-
 const ctx1 = document.getElementById('spendChart').getContext('2d');
 new Chart(ctx1, {
   type: 'bar',
   data: {
     labels,
     datasets: [
-      {
-        label: 'Daily Spend (¥)',
-        data: spend,
-        backgroundColor: 'rgba(92,82,78,0.12)',
-        borderColor: '#1D4ED8',
-        borderWidth: 1.5,
-        borderRadius: 3,
-        yAxisID: 'y',
-      },
-      {
-        label: 'Leads',
-        data: leads,
-        type: 'line',
-        borderColor: '#6B8F71',
-        backgroundColor: 'rgba(16,185,129,0.1)',
-        borderWidth: 2,
-        pointRadius: 3,
-        pointBackgroundColor: '#6B8F71',
-        tension: 0.4,
-        yAxisID: 'y1',
-        fill: true,
-      }
+      { label: 'Daily Spend (¥)', data: spend, backgroundColor: 'rgba(99,102,241,0.15)', borderColor: '#6366F1', borderWidth: 1.5, borderRadius: 3, yAxisID: 'y' },
+      { label: 'Leads', data: leads, type: 'line', borderColor: '#10B981', backgroundColor: 'rgba(16,185,129,0.1)', borderWidth: 2, pointRadius: 3, pointBackgroundColor: '#10B981', tension: 0.4, yAxisID: 'y1', fill: true }
     ]
   },
   options: {
     responsive: true,
     interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: { labels: { font: { size: 10 }, boxWidth: 10, padding: 10 } },
-      tooltip: { bodyFont: { size: 10 }, titleFont: { size: 10 } }
-    },
+    plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10, padding: 10 } } },
     scales: {
       x: { ticks: { font: { size: 9 } }, grid: { display: false } },
-      y: {
-        position: 'left',
-        ticks: { font: { size: 9 }, callback: v => '¥' + (v/1000).toFixed(0) + 'K' },
-        grid: { color: '#F3F4F6' }
-      },
-      y1: {
-        position: 'right',
-        ticks: { font: { size: 9 } },
-        grid: { display: false }
-      }
+      y: { position: 'left', ticks: { font: { size: 9 }, callback: v => '¥' + (v/1000).toFixed(0) + 'K' }, grid: { color: '#F3F4F6' } },
+      y1: { position: 'right', ticks: { font: { size: 9 } }, grid: { display: false } }
     }
   }
 });
-
 const ctx2 = document.getElementById('sourceChart').getContext('2d');
 new Chart(ctx2, {
   type: 'doughnut',
   data: {
     labels: ['Paid promotion', 'Organic search', 'DM outreach', 'Referral'],
-    datasets: [{
-      data: [52, 24, 14, 10],
-      backgroundColor: ['#1D4ED8','#3B82F6','#93C5FD','#F8F7F5'],
-      borderWidth: 0,
-    }]
+    datasets: [{ data: [52, 24, 14, 10], backgroundColor: ['#6366F1','#818CF8','#A5B4FC','#E0E7FF'], borderWidth: 0 }]
   },
   options: {
-    responsive: true,
-    cutout: '68%',
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: { font: { size: 9 }, boxWidth: 8, padding: 8 }
-      },
-      tooltip: { bodyFont: { size: 10 } }
-    }
+    responsive: true, cutout: '68%',
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 8, padding: 8 } } }
   }
 });
 </script>
-
 </body>
 </html>
