@@ -3,159 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hypo-Alert System v2.5 — MIMIC-IV ICU Dashboard</title>
+<title>Hypo-Alert System v2.5 — MIMIC-IV</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#1a1a1a;color:#ecf0f1;display:flex;min-height:100vh}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8F7F5;color:#1C1C1A;display:flex;min-height:100vh;font-size:13px}
 /* SIDEBAR */
-.sidebar{width:280px;background:#222d32;flex-shrink:0;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:10;overflow-y:auto}
-.sidebar-header{background:#1a2226;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
-.sidebar-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:.3px}
-.sidebar-sub{font-size:10px;color:#7fb3d5;margin-top:2px;letter-spacing:.5px;text-transform:uppercase}
-.nav-section{padding:10px 16px 4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4a6070}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;color:#b8c7ce;font-size:13px;border-left:3px solid transparent;transition:all .15s}
-.nav-item:hover{background:rgba(255,255,255,.05);color:#fff}
-.nav-item.active{background:#1e282c;color:#fff;border-left-color:#7fb3d5}
-.nav-icon{width:16px;text-align:center;font-size:13px}
-.patient-section{padding:16px;border-top:1px solid rgba(255,255,255,.08)}
-.section-label-s{font-size:10px;font-weight:700;color:#7fb3d5;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.patient-select{width:100%;background:#1e282c;border:1px solid #3a4a55;color:#ecf0f1;padding:8px 10px;border-radius:4px;font-size:12px}
-.vital-card{background:#1e282c;border:1px solid rgba(255,255,255,.08);border-left:3px solid #7fb3d5;border-radius:4px;padding:10px 12px;margin-bottom:8px}
-.vital-card-label{font-size:9px;color:#7f8c8d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
-.vital-card-value{font-size:18px;font-weight:700;color:#ecf0f1;line-height:1}
-.vital-card-range{font-size:9px;color:#4a6070;margin-top:4px;font-family:monospace}
+.sidebar{width:260px;background:#FFFFFF;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;border-right:1px solid #E8E4DF;overflow-y:auto;display:flex;flex-direction:column}
+.sidebar-header{padding:14px 16px;border-bottom:1px solid #E8E4DF}
+.sidebar-title{font-size:13px;font-weight:700;color:#1C1C1A;letter-spacing:-.01em}
+.sidebar-sub{font-size:10px;color:#9A928E;margin-top:2px;letter-spacing:.05em;text-transform:uppercase}
+.nav-label{padding:12px 16px 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C4BEBB}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 16px;cursor:pointer;color:#5C524E;font-size:12px;border-left:2px solid transparent;transition:all .15s}
+.nav-item:hover{background:#F8F7F5;color:#1C1C1A}
+.nav-item.active{background:#F5F2EE;color:#2C1810;border-left-color:#2C1810;font-weight:600}
+.patient-section{padding:14px 16px;border-top:1px solid #E8E4DF;margin-top:auto}
+.sec-label-s{font-size:10px;font-weight:700;color:#9A928E;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.patient-select{width:100%;background:#F8F7F5;border:1px solid #D4CFC9;color:#1C1C1A;padding:7px 10px;border-radius:5px;font-size:12px}
+.vital-card{background:#F8F7F5;border:1px solid #E8E4DF;border-left:2px solid #2C1810;border-radius:5px;padding:9px 12px;margin-bottom:7px}
+.vc-label{font-size:9px;color:#9A928E;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.vc-value{font-size:17px;font-weight:600;color:#1C1C1A;line-height:1}
+.vc-range{font-size:9px;color:#C4BEBB;margin-top:3px;font-family:monospace}
 /* MAIN */
-.main{margin-left:280px;flex:1;display:flex;flex-direction:column}
-.topbar{background:#222d32;border-bottom:1px solid rgba(255,255,255,.08);padding:10px 24px;display:flex;align-items:center;justify-content:space-between}
-.topbar-title{font-size:14px;font-weight:600;color:#fff}
-.github-link{font-size:11px;color:#7fb3d5;text-decoration:none;border:1px solid #7fb3d5;padding:4px 10px;border-radius:3px;transition:all .15s}
-.github-link:hover{background:#7fb3d5;color:#1a1a1a}
-.content{padding:20px 24px;flex:1}
+.main{margin-left:260px;flex:1;display:flex;flex-direction:column}
+.topbar{background:#fff;border-bottom:1px solid #E8E4DF;padding:10px 22px;display:flex;align-items:center;justify-content:space-between}
+.topbar-title{font-size:13px;font-weight:600;color:#1C1C1A}
+.gh-link{font-size:11px;color:#5C524E;text-decoration:none;border:1px solid #D4CFC9;padding:4px 10px;border-radius:4px;transition:all .15s}
+.gh-link:hover{border-color:#2C1810;color:#2C1810}
+.content{padding:18px 22px;flex:1}
 .tab-content{display:none}.tab-content.active{display:block}
-/* CARDS */
-.row{display:grid;gap:16px}
+/* BOXES */
+.row{display:grid;gap:12px}
 .row-2{grid-template-columns:1fr 1fr}
 .row-3{grid-template-columns:1fr 1fr 1fr}
 .row-7-5{grid-template-columns:7fr 5fr}
-.box{background:#2c3e50;border-radius:8px;border:1px solid rgba(255,255,255,.06);border-top:3px solid #7fb3d5;overflow:hidden}
-.box.risk{border-top-color:#e6b0aa}
-.box-header{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between}
-.box-title{font-size:13px;font-weight:600;color:#ecf0f1}
-.box-body{padding:16px}
+.box{background:#fff;border-radius:8px;border:1px solid #E8E4DF;overflow:hidden}
+.box-header{padding:11px 14px;border-bottom:1px solid #E8E4DF;display:flex;align-items:center;justify-content:space-between}
+.box-title{font-size:12px;font-weight:600;color:#1C1C1A}
+.box-body{padding:14px}
 /* VALUE BOXES */
-.vbox{border-radius:6px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-.vbox.blue{background:#1a5276}
-.vbox.red{background:#641e16}
-.vbox.teal{background:#0e6655}
-.vbox-num{font-size:2rem;font-weight:700;line-height:1}
-.vbox-label{font-size:11px;color:rgba(255,255,255,.7);margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
-.vbox-icon{font-size:2.5rem;opacity:.4}
+.vbox{border-radius:6px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;border:1px solid #E8E4DF}
+.vbox.blue{background:#EFF6FF;border-color:#BFDBFE}
+.vbox.red{background:#FEF2F2;border-color:#FECACA}
+.vbox.green{background:#F0FDF4;border-color:#BBF7D0}
+.vbox-num{font-size:1.8rem;font-weight:700;line-height:1;color:#1C1C1A}
+.vbox-label{font-size:10px;color:#9A928E;margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+.vbox-icon{font-size:2rem;opacity:.25}
 /* TABLE */
-.snapshot-table{width:100%;border-collapse:collapse}
-.snapshot-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
-.snapshot-table td:first-child{color:#7f8c8d;font-weight:600;width:45%}
+.snap-table{width:100%;border-collapse:collapse}
+.snap-table td{padding:7px 8px;border-bottom:1px solid #F0EDE8;font-size:11px;color:#1C1C1A}
+.snap-table td:first-child{color:#9A928E;font-weight:600;width:45%}
 /* BADGE */
-.comorb-badge{display:inline-block;padding:8px 14px;margin:5px;border-radius:4px;font-weight:700;font-size:13px}
-.badge-yes{background:#e6b0aa;color:#1a1a1a}
-.badge-no{background:#d5d8dc;color:#1a1a1a}
+.cb-badge{display:inline-block;padding:7px 14px;margin:5px;border-radius:5px;font-weight:700;font-size:12px;border:1px solid}
+.badge-yes{background:#FEF2F2;color:#991B1B;border-color:#FECACA}
+.badge-no{background:#F8F7F5;color:#9A928E;border-color:#E8E4DF}
 /* NARRATIVE */
-.narrative-box{padding:14px;background:rgba(255,255,255,.04);border-left:4px solid #2e4053;border-radius:0 4px 4px 0;font-style:italic;color:#b2bec3;line-height:1.7;font-size:13px}
-/* CHART CONTAINERS */
-.chart-wrap{position:relative;height:320px}
-.chart-wrap-sm{position:relative;height:200px}
-.chart-wrap-md{position:relative;height:260px}
+.narrative-box{padding:12px;background:#F8F7F5;border-left:3px solid #2C1810;border-radius:0 5px 5px 0;font-style:italic;color:#5C524E;line-height:1.7;font-size:12px}
+/* CHART */
+.chart-wrap{position:relative;height:300px}
+.chart-wrap-sm{position:relative;height:180px}
+.chart-wrap-md{position:relative;height:230px}
+/* GAUGE */
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.gauge-bar{width:100%;height:24px;border-radius:4px;position:relative;overflow:hidden}
+.gauge-needle{position:absolute;top:0;bottom:0;width:2px;background:#2C1810;box-shadow:0 0 4px rgba(0,0,0,.3);border-radius:1px;transform:translateX(-50%)}
+.gauge-lbl{font-size:13px;font-weight:600;color:#1C1C1A}
 /* DEMO SELECT */
-.demo-select{background:#1e282c;border:1px solid #3a4a55;color:#ecf0f1;padding:7px 10px;border-radius:4px;font-size:12px;margin-bottom:14px}
-/* GAUGE-STYLE */
-.gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
-.gauge-bar{width:100%;height:28px;border-radius:4px;position:relative;overflow:hidden;background:linear-gradient(90deg,#e6b0aa 0%,#e6b0aa 28%,#7fb3d5 28%,#7fb3d5 100%)}
-.gauge-needle{position:absolute;top:0;bottom:0;width:3px;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.6);border-radius:2px;transform:translateX(-50%)}
-.gauge-label{font-size:14px;font-weight:700;color:#ecf0f1}
-/* BREADCRUMB */
-.breadcrumb{font-size:11px;color:#7f8c8d;margin-bottom:16px}
-.breadcrumb span{color:#7fb3d5}
-/* NOTE BANNER */
-.note-banner{background:#1e3a4a;border:1px solid #7fb3d5;border-radius:6px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:#b2bec3;display:flex;align-items:center;gap:8px}
+.demo-sel{background:#F8F7F5;border:1px solid #D4CFC9;color:#1C1C1A;padding:6px 10px;border-radius:5px;font-size:12px;margin-bottom:12px}
+/* NOTE */
+.note-banner{background:#F5F2EE;border:1px solid #D4CFC9;border-radius:6px;padding:9px 12px;margin-bottom:14px;font-size:11px;color:#5C524E;display:flex;align-items:flex-start;gap:7px}
+.breadcrumb{font-size:11px;color:#9A928E;margin-bottom:14px}
+.breadcrumb span{color:#2C1810;font-weight:600}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <div class="sidebar-header">
-    <div class="sidebar-title">🏥 Hypo-Alert System v2.5</div>
+    <div class="sidebar-title">Hypo-Alert System v2.5</div>
     <div class="sidebar-sub">MIMIC-IV ICU · UCLA Biostat 203B</div>
   </div>
-
-  <div style="padding:8px 0">
-    <div class="nav-section">Navigation</div>
-    <div class="nav-item active" onclick="switchTab('population',this)">
-      <span class="nav-icon">📊</span> Cohort Baseline
-    </div>
-    <div class="nav-item" onclick="switchTab('patient',this)">
-      <span class="nav-icon">👤</span> Patient Demographics
-    </div>
-    <div class="nav-item" onclick="switchTab('vitals',this)">
-      <span class="nav-icon">📈</span> Vitals Trajectory
-    </div>
-    <div class="nav-item" onclick="switchTab('comorbidity',this)">
-      <span class="nav-icon">🩺</span> Comorbidity Profile
-    </div>
-    <div class="nav-item" onclick="switchTab('risk',this)">
-      <span class="nav-icon">⚕️</span> Risk Assessment
-    </div>
+  <div style="padding:6px 0">
+    <div class="nav-label">Navigation</div>
+    <div class="nav-item active" onclick="switchTab('population',this)">📊 Cohort Baseline</div>
+    <div class="nav-item" onclick="switchTab('patient',this)">👤 Patient Demographics</div>
+    <div class="nav-item" onclick="switchTab('vitals',this)">📈 Vitals Trajectory</div>
+    <div class="nav-item" onclick="switchTab('comorbidity',this)">🩺 Comorbidity Profile</div>
+    <div class="nav-item" onclick="switchTab('risk',this)">⚕️ Risk Assessment</div>
   </div>
-
   <div class="patient-section">
-    <div class="section-label-s">Step 1: Patient Selection</div>
+    <div class="sec-label-s">Step 1: Patient Selection</div>
     <select class="patient-select" id="patientSelect" onchange="updatePatient()">
-      <option value="">Search Patient ID...</option>
+      <option value="">Select Patient ID...</option>
       <option value="p1">10023451 — MICU, Age 67</option>
       <option value="p2">10045892 — SICU, Age 54</option>
       <option value="p3">10078234 — CCU, Age 72</option>
       <option value="p4">10091567 — MICU, Age 81</option>
     </select>
-
-    <div style="margin-top:14px">
-      <div class="section-label-s">Step 2: EHR Vital Signs</div>
-      <div id="vitalCards">
-        <div style="color:#4a6070;font-size:12px;padding:8px 0">Select a patient to view vitals.</div>
-      </div>
+    <div style="margin-top:12px">
+      <div class="sec-label-s">Step 2: EHR Vital Signs</div>
+      <div id="vitalCards"><div style="color:#C4BEBB;font-size:11px;padding:6px 0">Select a patient above.</div></div>
     </div>
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
   <div class="topbar">
     <div class="topbar-title">ICU Hypotension Risk Prediction · MIMIC-IV Dataset</div>
-    <a href="https://github.com/uhaizeol/biostat-203b-2026-winter" target="_blank" class="github-link">↗ View Full Code on GitHub</a>
+    <a href="https://github.com/uhaizeol/biostat-203b-2026-winter" target="_blank" class="gh-link">↗ Full Code on GitHub</a>
   </div>
-
   <div class="content">
-    <div class="note-banner">
-      ℹ️ <strong>Portfolio Simulation:</strong> Interactive demo built from real R Shiny code. Full source code and MIMIC-IV analysis available on GitHub. Patient data anonymized per MIMIC-IV data use agreement.
-    </div>
+    <div class="note-banner">ℹ️ <span><strong>Portfolio simulation</strong> — interactive demo built from real R Shiny source code. Full analysis on GitHub. Patient data anonymized per MIMIC-IV data use agreement.</span></div>
 
     <!-- TAB 1: POPULATION -->
     <div class="tab-content active" id="tab-population">
       <div class="breadcrumb">Dashboard / <span>Cohort Baseline</span></div>
-      <div class="row row-2" style="margin-bottom:16px">
-        <div class="box" style="grid-column:1/-1">
-          <div class="box-header">
-            <div class="box-title">Population Stratification</div>
-            <select class="demo-select" id="demoSelect" onchange="updatePopChart()" style="margin:0">
-              <option value="age">Age Group</option>
-              <option value="gender">Gender</option>
-              <option value="race">Race/Ethnicity</option>
-              <option value="insurance">Insurance</option>
-            </select>
-          </div>
-          <div class="box-body">
-            <p style="font-size:12px;color:#7f8c8d;margin-bottom:12px">Demographic distributions across outcome groups (Stable vs Hypotension). N = 50,247 ICU stays.</p>
-          </div>
+      <div class="box" style="margin-bottom:12px">
+        <div class="box-header">
+          <div class="box-title">Population Stratification</div>
+          <select class="demo-sel" id="demoSelect" onchange="updatePopChart()" style="margin:0">
+            <option value="age">Age Group</option>
+            <option value="gender">Gender</option>
+            <option value="race">Race/Ethnicity</option>
+            <option value="insurance">Insurance</option>
+          </select>
         </div>
+        <div class="box-body"><p style="font-size:11px;color:#9A928E">Demographic distributions across outcome groups. N = 50,247 ICU stays.</p></div>
       </div>
       <div class="row row-7-5">
         <div class="box">
@@ -163,8 +136,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <div class="box-body"><div class="chart-wrap"><canvas id="popChart"></canvas></div></div>
         </div>
         <div class="box">
-          <div class="box-header"><div class="box-title">Statistical Frequency Table</div></div>
-          <div class="box-body" id="popTable" style="font-size:12px"></div>
+          <div class="box-header"><div class="box-title">Frequency Table</div></div>
+          <div class="box-body" id="popTable" style="font-size:11px;overflow-x:auto"></div>
         </div>
       </div>
     </div>
@@ -172,27 +145,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- TAB 2: PATIENT -->
     <div class="tab-content" id="tab-patient">
       <div class="breadcrumb">Dashboard / <span>Patient Demographics</span></div>
-      <div id="patientWarning" style="color:#e6b0aa;font-size:13px;padding:20px 0">Please select a patient from the sidebar.</div>
+      <div id="patientWarning" style="color:#9A928E;font-size:12px;padding:20px 0">Please select a patient from the sidebar.</div>
       <div id="patientContent" style="display:none">
-        <div class="row row-3" style="margin-bottom:16px">
-          <div class="vbox blue" id="vbox-gender"><div><div class="vbox-num" id="vb-gender">—</div><div class="vbox-label">Biological Sex</div></div><div class="vbox-icon">♀♂</div></div>
-          <div class="vbox teal" id="vbox-race"><div><div class="vbox-num" id="vb-race" style="font-size:1.1rem">—</div><div class="vbox-label">Race/Ethnicity</div></div><div class="vbox-icon">🏷</div></div>
-          <div class="vbox" id="vbox-outcome" style="background:#1a5276"><div><div class="vbox-num" id="vb-outcome">—</div><div class="vbox-label">Actual Outcome</div></div><div class="vbox-icon">🏥</div></div>
+        <div class="row row-3" style="margin-bottom:12px">
+          <div class="vbox blue"><div><div class="vbox-num" id="vb-gender">—</div><div class="vbox-label">Biological Sex</div></div><div class="vbox-icon">♀♂</div></div>
+          <div class="vbox" id="vbox-race" style="background:#F5F2EE;border-color:#D4CFC9"><div><div class="vbox-num" id="vb-race" style="font-size:1rem">—</div><div class="vbox-label">Race/Ethnicity</div></div><div class="vbox-icon">🏷</div></div>
+          <div class="vbox" id="vbox-outcome"><div><div class="vbox-num" id="vb-outcome">—</div><div class="vbox-label">Actual Outcome</div></div><div class="vbox-icon">🏥</div></div>
         </div>
-        <div class="row row-2" style="margin-bottom:16px">
-          <div class="box">
-            <div class="box-header"><div class="box-title">Identification & Age</div></div>
-            <div class="box-body"><table class="snapshot-table" id="demoTable1"></table></div>
-          </div>
-          <div class="box">
-            <div class="box-header"><div class="box-title">Social Context</div></div>
-            <div class="box-body"><table class="snapshot-table" id="demoTable2"></table></div>
-          </div>
+        <div class="row row-2" style="margin-bottom:12px">
+          <div class="box"><div class="box-header"><div class="box-title">Identification & Age</div></div><div class="box-body"><table class="snap-table" id="demoTable1"></table></div></div>
+          <div class="box"><div class="box-header"><div class="box-title">Social Context</div></div><div class="box-body"><table class="snap-table" id="demoTable2"></table></div></div>
         </div>
-        <div class="box">
-          <div class="box-header"><div class="box-title">Clinical Context Narrative Summary</div></div>
-          <div class="box-body"><div class="narrative-box" id="narrativeBox"></div></div>
-        </div>
+        <div class="box"><div class="box-header"><div class="box-title">Clinical Context Narrative</div></div><div class="box-body"><div class="narrative-box" id="narrativeBox"></div></div></div>
       </div>
     </div>
 
@@ -202,12 +166,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="box">
         <div class="box-header"><div class="box-title">Physiological Evolution (0–6h ICU Window)</div></div>
         <div class="box-body">
-          <p style="font-size:12px;color:#7f8c8d;margin-bottom:14px">Visualizing reconstructed bedside monitoring trajectories. Trends based on EHR mean levels and slopes with simulated physiological variability.</p>
+          <p style="font-size:11px;color:#9A928E;margin-bottom:14px">Reconstructed bedside monitoring trajectories based on EHR mean levels and slopes with simulated physiological variability.</p>
           <div class="row row-2">
-            <div><div style="font-size:12px;color:#7fb3d5;margin-bottom:6px;font-weight:600">MAP (mmHg)</div><div class="chart-wrap-md"><canvas id="mapChart"></canvas></div></div>
-            <div><div style="font-size:12px;color:#f39c12;margin-bottom:6px;font-weight:600">Heart Rate (bpm)</div><div class="chart-wrap-md"><canvas id="hrChart"></canvas></div></div>
-            <div><div style="font-size:12px;color:#2ecc71;margin-bottom:6px;font-weight:600">Respiratory Rate (insp/min)</div><div class="chart-wrap-md"><canvas id="rrChart"></canvas></div></div>
-            <div><div style="font-size:12px;color:#9b59b6;margin-bottom:6px;font-weight:600">SpO2 (%)</div><div class="chart-wrap-md"><canvas id="spo2Chart"></canvas></div></div>
+            <div><div style="font-size:11px;color:#1D4ED8;margin-bottom:5px;font-weight:600">MAP (mmHg)</div><div class="chart-wrap-md"><canvas id="mapChart"></canvas></div></div>
+            <div><div style="font-size:11px;color:#B45309;margin-bottom:5px;font-weight:600">Heart Rate (bpm)</div><div class="chart-wrap-md"><canvas id="hrChart"></canvas></div></div>
+            <div><div style="font-size:11px;color:#047857;margin-bottom:5px;font-weight:600">Respiratory Rate</div><div class="chart-wrap-md"><canvas id="rrChart"></canvas></div></div>
+            <div><div style="font-size:11px;color:#7C3AED;margin-bottom:5px;font-weight:600">SpO2 (%)</div><div class="chart-wrap-md"><canvas id="spo2Chart"></canvas></div></div>
           </div>
         </div>
       </div>
@@ -216,17 +180,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- TAB 4: COMORBIDITY -->
     <div class="tab-content" id="tab-comorbidity">
       <div class="breadcrumb">Dashboard / <span>Comorbidity Profile</span></div>
-      <div class="box" style="margin-bottom:16px">
-        <div class="box-header"><div class="box-title">Patient Comorbidity Dashboard</div></div>
-        <div class="box-body">
-          <p style="font-size:12px;color:#7f8c8d;margin-bottom:14px">Overview of pre-existing chronic conditions as recorded in the clinical record.</p>
-          <div id="comorbBadges"></div>
-        </div>
+      <div class="box" style="margin-bottom:12px">
+        <div class="box-header"><div class="box-title">Patient Comorbidity Status</div></div>
+        <div class="box-body"><div id="comorbBadges"></div></div>
       </div>
       <div class="box">
         <div class="box-header"><div class="box-title">Comorbidity Burden vs. Cohort Average</div></div>
         <div class="box-body">
-          <p style="font-size:12px;color:#7f8c8d;margin-bottom:10px">Grey bar: Population frequency | Red diamond: This patient (1.0 = Diagnosed)</p>
+          <p style="font-size:11px;color:#9A928E;margin-bottom:10px">Grey bar: population frequency · Red diamond: this patient (1.0 = diagnosed)</p>
           <div class="chart-wrap"><canvas id="comorbChart"></canvas></div>
         </div>
       </div>
@@ -235,42 +196,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- TAB 5: RISK -->
     <div class="tab-content" id="tab-risk">
       <div class="breadcrumb">Dashboard / <span>Risk Assessment</span></div>
-      <div class="row row-7-5" style="margin-bottom:16px">
+      <div class="row row-7-5" style="margin-bottom:12px">
         <div class="box">
           <div class="box-header"><div class="box-title">Real-time Predictive Insight</div></div>
           <div class="box-body">
-            <div class="row row-2" style="margin-bottom:16px">
+            <div class="row row-2" style="margin-bottom:14px">
               <div>
-                <div style="font-size:12px;color:#7f8c8d;text-align:center;margin-bottom:8px">Current MAP Status</div>
+                <div style="font-size:11px;color:#9A928E;text-align:center;margin-bottom:8px">Current MAP Status</div>
                 <div class="gauge-wrap">
-                  <div style="width:100%;height:28px;border-radius:4px;overflow:hidden;position:relative;background:linear-gradient(90deg,#e6b0aa 0%,#e6b0aa 30%,#7fb3d5 30%,#7fb3d5 100%)">
-                    <div class="gauge-needle" id="mapNeedle" style="left:60%"></div>
-                  </div>
-                  <div style="width:100%;display:flex;justify-content:space-between;font-size:10px;color:#7f8c8d"><span>40 mmHg (Critical)</span><span>70 (Threshold)</span><span>150 mmHg</span></div>
-                  <div class="gauge-label" id="mapGaugeLabel">MAP: — mmHg</div>
+                  <div class="gauge-bar" style="background:linear-gradient(90deg,#FEE2E2 0%,#FEE2E2 30%,#DBEAFE 30%,#DBEAFE 100%)"><div class="gauge-needle" id="mapNeedle" style="left:60%"></div></div>
+                  <div style="width:100%;display:flex;justify-content:space-between;font-size:9px;color:#9A928E"><span>40 (Critical)</span><span>70 (Threshold)</span><span>150 mmHg</span></div>
+                  <div class="gauge-lbl" id="mapGaugeLabel">MAP: — mmHg</div>
                 </div>
               </div>
               <div>
-                <div style="font-size:12px;color:#7f8c8d;text-align:center;margin-bottom:8px">Predicted 6–12h Risk</div>
+                <div style="font-size:11px;color:#9A928E;text-align:center;margin-bottom:8px">Predicted 6–12h Risk</div>
                 <div class="gauge-wrap">
-                  <div style="width:100%;height:28px;border-radius:4px;overflow:hidden;position:relative;background:linear-gradient(90deg,#7fb3d5 0%,#7fb3d5 28%,#e6b0aa 28%,#e6b0aa 100%)">
-                    <div class="gauge-needle" id="riskNeedle" style="left:20%"></div>
-                  </div>
-                  <div style="width:100%;display:flex;justify-content:space-between;font-size:10px;color:#7f8c8d"><span>0% (Stable)</span><span>28% (Threshold)</span><span>100%</span></div>
-                  <div class="gauge-label" id="riskGaugeLabel">Risk: — %</div>
+                  <div class="gauge-bar" style="background:linear-gradient(90deg,#DBEAFE 0%,#DBEAFE 28%,#FEE2E2 28%,#FEE2E2 100%)"><div class="gauge-needle" id="riskNeedle" style="left:20%"></div></div>
+                  <div style="width:100%;display:flex;justify-content:space-between;font-size:9px;color:#9A928E"><span>0%</span><span>28% Threshold</span><span>100%</span></div>
+                  <div class="gauge-lbl" id="riskGaugeLabel">Risk: — %</div>
                 </div>
               </div>
             </div>
-            <div id="clinicalAdvice" style="background:rgba(127,179,213,.1);border:1px solid #7fb3d5;border-radius:6px;padding:12px;font-size:12px;color:#b2bec3;line-height:1.6"></div>
+            <div id="clinicalAdvice" style="background:#F8F7F5;border:1px solid #E8E4DF;border-radius:5px;padding:10px;font-size:11px;color:#5C524E;line-height:1.6"></div>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:10px">
           <div class="vbox blue" id="riskVbox"><div><div class="vbox-num" id="riskScore">—%</div><div class="vbox-label">Risk Score</div></div><div class="vbox-icon">📊</div></div>
-          <div class="vbox" id="statusVbox" style="background:#0e6655"><div><div class="vbox-num" id="statusLabel">Stable</div><div class="vbox-label">Safety Tier</div></div><div class="vbox-icon">✅</div></div>
-          <div class="box">
-            <div class="box-header"><div class="box-title">Current Parameter Snapshot</div></div>
-            <div class="box-body"><table class="snapshot-table" id="paramSnapshot"></table></div>
-          </div>
+          <div class="vbox green" id="statusVbox"><div><div class="vbox-num" id="statusLabel">Stable</div><div class="vbox-label">Safety Tier</div></div><div class="vbox-icon">✅</div></div>
+          <div class="box"><div class="box-header"><div class="box-title">Parameter Snapshot</div></div><div class="box-body"><table class="snap-table" id="paramSnapshot"></table></div></div>
         </div>
       </div>
       <div class="box">
@@ -278,11 +232,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="box-body">
           <div class="row row-7-5">
             <div class="chart-wrap"><canvas id="vipChart"></canvas></div>
-            <div style="padding:8px">
-              <p style="font-size:13px;font-weight:600;margin-bottom:10px">How to read?</p>
-              <p style="font-size:12px;color:#e6b0aa;margin-bottom:6px">🔴 Coral (Right): Increasing risk.</p>
-              <p style="font-size:12px;color:#7fb3d5;margin-bottom:6px">🔵 Blue (Left): Providing stability.</p>
-              <p style="font-size:12px;color:#7f8c8d;line-height:1.6">Attribution is dynamic and unique to this patient's deviance from the cohort average. Based on logistic regression coefficients × standardized feature values.</p>
+            <div style="padding:6px">
+              <p style="font-size:12px;font-weight:600;margin-bottom:8px;color:#1C1C1A">How to read?</p>
+              <p style="font-size:11px;color:#991B1B;margin-bottom:5px">🔴 Right (coral): Increasing risk.</p>
+              <p style="font-size:11px;color:#1D4ED8;margin-bottom:5px">🔵 Left (blue): Providing stability.</p>
+              <p style="font-size:11px;color:#9A928E;line-height:1.6">Attribution is unique to this patient's deviation from cohort average.</p>
             </div>
           </div>
         </div>
@@ -292,193 +246,141 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
-// ── MOCK DATA ──
-const patients = {
-  p1: { id:'10023451', stayId:'200123', age:67, gender:'M', race:'WHITE', insurance:'Medicare', marital:'MARRIED', unit:'MICU', admType:'URGENT', mapMean:78, mapSlope:-0.8, hr:88, rr:19, spo2:95, hf:1, dm:0, renal:0, label:'Stable', prob:0.18 },
-  p2: { id:'10045892', stayId:'200456', age:54, gender:'F', race:'BLACK', insurance:'Medicaid', marital:'SINGLE', unit:'SICU', admType:'ELECTIVE', mapMean:62, mapSlope:-2.1, hr:102, rr:24, spo2:93, hf:0, dm:1, renal:1, label:'Hypotension', prob:0.71 },
-  p3: { id:'10078234', stayId:'200789', age:72, gender:'M', race:'HISPANIC', insurance:'Other', marital:'WIDOWED', unit:'CCU', admType:'URGENT', mapMean:71, mapSlope:-1.4, hr:94, rr:21, spo2:96, hf:1, dm:1, renal:0, label:'Stable', prob:0.34 },
-  p4: { id:'10091567', stayId:'200912', age:81, gender:'F', race:'ASIAN', insurance:'Medicare', marital:'DIVORCED', unit:'MICU', admType:'EMERGENCY', mapMean:55, mapSlope:-3.2, hr:115, rr:28, spo2:91, hf:1, dm:0, renal:1, label:'Hypotension', prob:0.88 },
+const STABLE='#7FB3D5', HYPO='#E6B0AA', DARK='#2C1810';
+const patients={
+  p1:{id:'10023451',stayId:'200123',age:67,gender:'M',race:'WHITE',insurance:'Medicare',marital:'MARRIED',unit:'MICU',mapMean:78,mapSlope:-0.8,hr:88,rr:19,spo2:95,hf:1,dm:0,renal:0,label:'Stable',prob:0.18},
+  p2:{id:'10045892',stayId:'200456',age:54,gender:'F',race:'BLACK',insurance:'Medicaid',marital:'SINGLE',unit:'SICU',mapMean:62,mapSlope:-2.1,hr:102,rr:24,spo2:93,hf:0,dm:1,renal:1,label:'Hypotension',prob:0.71},
+  p3:{id:'10078234',stayId:'200789',age:72,gender:'M',race:'HISPANIC',insurance:'Other',marital:'WIDOWED',unit:'CCU',mapMean:71,mapSlope:-1.4,hr:94,rr:21,spo2:96,hf:1,dm:1,renal:0,label:'Stable',prob:0.34},
+  p4:{id:'10091567',stayId:'200912',age:81,gender:'F',race:'ASIAN',insurance:'Medicare',marital:'DIVORCED',unit:'MICU',mapMean:55,mapSlope:-3.2,hr:115,rr:28,spo2:91,hf:1,dm:0,renal:1,label:'Hypotension',prob:0.88}
+};
+let curP=null,popCI=null,vipCI=null,comorbCI=null;
+const popData={
+  age:{labels:['18-29','30-39','40-49','50-59','60-69','70-79','80+'],stable:[4.2,7.1,13,19,24,21,12],hypo:[3.1,5,10,17,26,25,15]},
+  gender:{labels:['Female','Male'],stable:[48,52],hypo:[51,49]},
+  race:{labels:['White','Black','Hispanic','Asian','Other'],stable:[62,19,9,6,4],hypo:[58,22,11,5,4]},
+  insurance:{labels:['Medicare','Medicaid','Private','Other'],stable:[44,18,28,10],hypo:[51,22,18,9]}
+};
+const popTables={
+  age:[['18-29','312 (4.2%)','48 (3.1%)','360'],['30-39','522 (7.1%)','78 (5%)','600'],['40-49','954 (13%)','156 (10%)','1,110'],['50-59','1,398 (19%)','265 (17%)','1,663'],['60-69','1,764 (24%)','405 (26%)','2,169'],['70-79','1,544 (21%)','390 (25%)','1,934'],['80+','882 (12%)','234 (15%)','1,116'],['TOTAL','7,376','1,576','8,952']],
+  gender:[['Female','3,540 (48%)','804 (51%)','4,344'],['Male','3,836 (52%)','772 (49%)','4,608'],['TOTAL','7,376','1,576','8,952']],
+  race:[['White','4,573 (62%)','914 (58%)','5,487'],['Black','1,401 (19%)','347 (22%)','1,748'],['Hispanic','664 (9%)','173 (11%)','837'],['Asian','442 (6%)','79 (5%)','521'],['Other','296 (4%)','63 (4%)','359'],['TOTAL','7,376','1,576','8,952']],
+  insurance:[['Medicare','3,245 (44%)','804 (51%)','4,049'],['Medicaid','1,328 (18%)','347 (22%)','1,675'],['Private','2,065 (28%)','284 (18%)','2,349'],['Other','738 (10%)','141 (9%)','879'],['TOTAL','7,376','1,576','8,952']]
 };
 
-let currentPatient = null;
-let popChartInst=null, vipChartInst=null, mapCI=null, hrCI=null, rrCI=null, spo2CI=null, comorbCI=null;
-
-const popData = {
-  age:{ labels:['18-29','30-39','40-49','50-59','60-69','70-79','80+'], stable:[0.04,0.07,0.13,0.19,0.24,0.21,0.12], hypo:[0.02,0.05,0.10,0.17,0.26,0.25,0.15] },
-  gender:{ labels:['Female','Male'], stable:[0.48,0.52], hypo:[0.51,0.49] },
-  race:{ labels:['White','Black','Hispanic','Asian','Other'], stable:[0.62,0.19,0.09,0.06,0.04], hypo:[0.58,0.22,0.11,0.05,0.04] },
-  insurance:{ labels:['Medicare','Medicaid','Private','Other'], stable:[0.44,0.18,0.28,0.10], hypo:[0.51,0.22,0.18,0.09] }
-};
-
-const popTables = {
-  age: [['18-29','312 (4.2%)','48 (3.1%)','360 (0.7%)'],['30-39','522 (7.1%)','78 (5.0%)','600 (1.2%)'],['40-49','954 (13.0%)','156 (10.0%)','1,110 (2.2%)'],['50-59','1,398 (19.0%)','265 (17.0%)','1,663 (3.3%)'],['60-69','1,764 (24.0%)','405 (26.0%)','2,169 (4.3%)'],['70-79','1,544 (21.0%)','390 (25.0%)','1,934 (3.8%)'],['80+','882 (12.0%)','234 (15.0%)','1,116 (2.2%)'],['TOTAL','7,376 (100%)','1,576 (100%)','8,952']],
-  gender: [['Female','3,540 (48%)','804 (51%)','4,344'],['Male','3,836 (52%)','772 (49%)','4,608'],['TOTAL','7,376','1,576','8,952']],
-  race: [['White','4,573 (62%)','914 (58%)','5,487'],['Black','1,401 (19%)','347 (22%)','1,748'],['Hispanic','664 (9%)','173 (11%)','837'],['Asian','442 (6%)','79 (5%)','521'],['Other','296 (4%)','63 (4%)','359'],['TOTAL','7,376','1,576','8,952']],
-  insurance: [['Medicare','3,245 (44%)','804 (51%)','4,049'],['Medicaid','1,328 (18%)','347 (22%)','1,675'],['Private','2,065 (28%)','284 (18%)','2,349'],['Other','738 (10%)','141 (9%)','879'],['TOTAL','7,376','1,576','8,952']]
-};
-
-function switchTab(name, el) {
+function switchTab(name,el){
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
   el.classList.add('active');
-  if(name==='population') initPopChart();
-  if(name==='vitals' && currentPatient) drawVitals();
-  if(name==='comorbidity' && currentPatient) drawComorbidity();
-  if(name==='risk' && currentPatient) drawRisk();
+  if(name==='population')initPopChart();
+  if(name==='vitals'&&curP)drawVitals();
+  if(name==='comorbidity'&&curP)drawComorbidity();
+  if(name==='risk'&&curP)drawRisk();
 }
 
-function initPopChart() {
-  const key = document.getElementById('demoSelect')?.value || 'age';
-  const d = popData[key];
-  const ctx = document.getElementById('popChart').getContext('2d');
-  if(popChartInst) popChartInst.destroy();
-  popChartInst = new Chart(ctx, {
-    type:'bar',
-    data:{ labels:d.labels,
-      datasets:[
-        {label:'Stable',data:d.stable.map(v=>+(v*100).toFixed(1)),backgroundColor:'rgba(127,179,213,0.75)',borderColor:'#7fb3d5',borderWidth:1.5,borderRadius:3},
-        {label:'Hypotension',data:d.hypo.map(v=>+(v*100).toFixed(1)),backgroundColor:'rgba(230,176,170,0.75)',borderColor:'#e6b0aa',borderWidth:1.5,borderRadius:3}
-      ]},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{position:'bottom',labels:{color:'#b2bec3',font:{size:11}}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw+'%'}}},
-      scales:{x:{ticks:{color:'#7f8c8d',font:{size:11}},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#7f8c8d',callback:v=>v+'%',font:{size:11}},grid:{color:'rgba(255,255,255,.05)'}}}}
-  });
+function initPopChart(){
+  const key=document.getElementById('demoSelect')?.value||'age';
+  const d=popData[key];
+  const ctx=document.getElementById('popChart').getContext('2d');
+  if(popCI)popCI.destroy();
+  popCI=new Chart(ctx,{type:'bar',data:{labels:d.labels,datasets:[
+    {label:'Stable',data:d.stable,backgroundColor:STABLE+'BB',borderColor:STABLE,borderWidth:1.5,borderRadius:3},
+    {label:'Hypotension',data:d.hypo,backgroundColor:HYPO+'BB',borderColor:HYPO,borderWidth:1.5,borderRadius:3}
+  ]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{color:'#5C524E',font:{size:11},boxWidth:12}}},
+    scales:{x:{ticks:{color:'#9A928E',font:{size:10}},grid:{color:'#F0EDE8'}},y:{ticks:{color:'#9A928E',callback:v=>v+'%',font:{size:10}},grid:{color:'#F0EDE8'}}}}});
   drawPopTable(key);
 }
-
-function updatePopChart() { initPopChart(); }
-
-function drawPopTable(key) {
-  const rows = popTables[key];
-  const el = document.getElementById('popTable');
-  el.innerHTML = '<table style="width:100%;border-collapse:collapse;font-size:11px"><thead><tr style="border-bottom:1px solid rgba(255,255,255,.1)"><th style="padding:6px 8px;text-align:left;color:#7f8c8d">Level</th><th style="padding:6px 8px;text-align:left;color:#7fb3d5">Stable</th><th style="padding:6px 8px;text-align:left;color:#e6b0aa">Hypotension</th><th style="padding:6px 8px;text-align:left;color:#ecf0f1">Total</th></tr></thead><tbody>'+
-    rows.map((r,i)=>`<tr style="border-bottom:1px solid rgba(255,255,255,.05);${i===rows.length-1?'font-weight:700;background:rgba(255,255,255,.03)':''}"><td style="padding:5px 8px;color:#b2bec3">${r[0]}</td><td style="padding:5px 8px;color:#7fb3d5">${r[1]}</td><td style="padding:5px 8px;color:#e6b0aa">${r[2]}</td><td style="padding:5px 8px;color:#ecf0f1">${r[3]}</td></tr>`).join('')+
+function updatePopChart(){initPopChart();}
+function drawPopTable(key){
+  const rows=popTables[key];
+  document.getElementById('popTable').innerHTML='<table style="width:100%;border-collapse:collapse;font-size:11px"><thead><tr style="border-bottom:1px solid #E8E4DF"><th style="padding:5px 7px;text-align:left;color:#9A928E">Level</th><th style="padding:5px 7px;color:#1D4ED8">Stable</th><th style="padding:5px 7px;color:#991B1B">Hypotension</th><th style="padding:5px 7px;color:#1C1C1A">Total</th></tr></thead><tbody>'+
+    rows.map((r,i)=>`<tr style="border-bottom:1px solid #F0EDE8;${i===rows.length-1?'font-weight:700;background:#F8F7F5':''}"><td style="padding:4px 7px;color:#5C524E">${r[0]}</td><td style="padding:4px 7px;color:#1D4ED8;text-align:center">${r[1]}</td><td style="padding:4px 7px;color:#991B1B;text-align:center">${r[2]}</td><td style="padding:4px 7px;text-align:center">${r[3]}</td></tr>`).join('')+
     '</tbody></table>';
 }
 
-function updatePatient() {
-  const key = document.getElementById('patientSelect').value;
-  if(!key) { currentPatient=null; document.getElementById('vitalCards').innerHTML='<div style="color:#4a6070;font-size:12px;padding:8px 0">Select a patient to view vitals.</div>'; return; }
-  currentPatient = patients[key];
-  const p = currentPatient;
-  // sidebar vitals
-  const cohort = {mapMean:[55,70,85,150], mapSlope:[-5,-1.5,0.2,2], hr:[45,70,95,140], rr:[8,14,22,35], spo2:[82,94,98,100], age:[18,45,72,95]};
-  const vd = [
-    ['Age (Years)', p.age, cohort.age],
-    ['MAP Mean (mmHg)', p.mapMean, cohort.mapMean],
-    ['MAP Trend (Slope)', p.mapSlope.toFixed(2), cohort.mapSlope],
-    ['Heart Rate (bpm)', p.hr, cohort.hr],
-    ['Resp Rate (insp/min)', p.rr, cohort.rr],
-    ['SpO2 Max (%)', p.spo2, cohort.spo2],
-  ];
-  document.getElementById('vitalCards').innerHTML = vd.map(([label,val,c])=>`
-    <div class="vital-card"><div class="vital-card-label">${label}</div><div class="vital-card-value">${val}</div>
-    <div class="vital-card-range">Cohort [Min:${c[0]} | Q1:${c[1]} | Q3:${c[2]} | Max:${c[3]}]</div></div>`).join('')+
-    `<div style="font-size:11px;color:#4a6070;margin-top:4px">🔒 Monitoring: ${p.hf||p.renal?'Invasive':'Non-Invasive'}</div>`;
-
+function updatePatient(){
+  const key=document.getElementById('patientSelect').value;
+  if(!key){curP=null;document.getElementById('vitalCards').innerHTML='<div style="color:#C4BEBB;font-size:11px;padding:6px 0">Select a patient above.</div>';return;}
+  curP=patients[key];
+  const p=curP;
+  const cohort={mapMean:[55,70,85,150],mapSlope:[-5,-1.5,0.2,2],hr:[45,70,95,140],rr:[8,14,22,35],spo2:[82,94,98,100],age:[18,45,72,95]};
+  const vd=[['Age (Years)',p.age,cohort.age],['MAP Mean (mmHg)',p.mapMean,cohort.mapMean],['MAP Trend (Slope)',p.mapSlope.toFixed(2),cohort.mapSlope],['Heart Rate (bpm)',p.hr,cohort.hr],['Resp Rate',p.rr,cohort.rr],['SpO2 Max (%)',p.spo2,cohort.spo2]];
+  document.getElementById('vitalCards').innerHTML=vd.map(([l,v,c])=>`<div class="vital-card"><div class="vc-label">${l}</div><div class="vc-value">${v}</div><div class="vc-range">Cohort [Min:${c[0]} Q1:${c[1]} Q3:${c[2]} Max:${c[3]}]</div></div>`).join('');
   // patient tab
   document.getElementById('patientWarning').style.display='none';
   document.getElementById('patientContent').style.display='block';
   document.getElementById('vb-gender').textContent=p.gender==='M'?'Male':'Female';
   document.getElementById('vb-race').textContent=p.race;
   document.getElementById('vb-outcome').textContent=p.label;
-  document.getElementById('vbox-outcome').style.background=p.label==='Hypotension'?'#641e16':'#1a5276';
-  document.getElementById('demoTable1').innerHTML=`<tr><td>Stay ID:</td><td>${p.stayId}</td></tr><tr><td>Subject ID:</td><td>${p.id}</td></tr><tr><td>EHR Age:</td><td>${p.age} years</td></tr>`;
+  const isHypo=p.label==='Hypotension';
+  document.getElementById('vbox-outcome').className='vbox '+(isHypo?'red':'green');
+  document.getElementById('demoTable1').innerHTML=`<tr><td>Stay ID:</td><td>${p.stayId}</td></tr><tr><td>Subject ID:</td><td>${p.id}</td></tr><tr><td>Age:</td><td>${p.age} years</td></tr>`;
   document.getElementById('demoTable2').innerHTML=`<tr><td>Insurance:</td><td>${p.insurance}</td></tr><tr><td>Care Unit:</td><td>${p.unit}</td></tr><tr><td>Status:</td><td>${p.marital}</td></tr>`;
-  document.getElementById('narrativeBox').innerHTML=`<strong>Automated Clinical EHR Summary:</strong><br>Patient (Subject ID: ${p.id}) is a ${p.age}-year-old ${p.race} ${p.gender==='M'?'Male':'Female'} admitted to ${p.unit} unit. Record indicates marital status as ${p.marital} with ${p.insurance} coverage. Based on historical data, this record followed the <strong>${p.label}</strong> trajectory. MAP slope of ${p.mapSlope.toFixed(2)} mmHg/hr indicates ${p.mapSlope<-1.5?'concerning downward trend requiring close monitoring.':'relatively stable hemodynamic state.'}`;
-
-  // draw other tabs if active
-  const active = document.querySelector('.tab-content.active').id;
-  if(active==='tab-vitals') drawVitals();
-  if(active==='tab-comorbidity') drawComorbidity();
-  if(active==='tab-risk') drawRisk();
+  document.getElementById('narrativeBox').innerHTML=`<strong>Automated Clinical EHR Summary:</strong><br>Patient ${p.id} is a ${p.age}-year-old ${p.race} ${p.gender==='M'?'male':'female'} admitted to ${p.unit}. MAP slope of ${p.mapSlope.toFixed(2)} mmHg/hr indicates ${p.mapSlope<-1.5?'a concerning downward hemodynamic trend.':'relatively stable hemodynamic state.'} Outcome: <strong>${p.label}</strong>.`;
+  const active=document.querySelector('.tab-content.active').id;
+  if(active==='tab-vitals')drawVitals();
+  if(active==='tab-comorbidity')drawComorbidity();
+  if(active==='tab-risk')drawRisk();
 }
 
-function genTrajectory(mean, slope, sd, n=13) {
-  const pts = Array.from({length:n},(_,i)=>i*0.5);
-  return pts.map(t=>{ const base=mean+slope*(t-3); const noise=(Math.random()-.5)*sd*2; return +(base+noise).toFixed(1); });
+function genTraj(mean,slope,sd,n=13){
+  return Array.from({length:n},(_,i)=>{const t=i*.5;return +(mean+slope*(t-3)+(Math.random()-.5)*sd*2).toFixed(1)});
 }
-
-function makeLineChart(id, data, color, yLabel, refLine) {
-  const ctx = document.getElementById(id).getContext('2d');
-  const existingChart = Chart.getChart(id);
-  if(existingChart) existingChart.destroy();
-  const labels = ['0h','0.5h','1h','1.5h','2h','2.5h','3h','3.5h','4h','4.5h','5h','5.5h','6h'];
-  const datasets = [{label:yLabel,data,borderColor:color,backgroundColor:color+'22',borderWidth:2,pointRadius:3,pointBackgroundColor:color,fill:true,tension:.4}];
-  if(refLine) datasets.push({label:'Threshold',data:Array(13).fill(refLine),borderColor:'#e74c3c',borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false});
-  new Chart(ctx,{type:'line',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' '+yLabel}}},
-    scales:{x:{ticks:{color:'#7f8c8d',font:{size:9}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#7f8c8d',font:{size:9}},grid:{color:'rgba(255,255,255,.04)'}}}}});
+function makeLine(id,data,color,yLabel,refLine){
+  const ctx=document.getElementById(id).getContext('2d');
+  const ex=Chart.getChart(id);if(ex)ex.destroy();
+  const labels=['0h','0.5h','1h','1.5h','2h','2.5h','3h','3.5h','4h','4.5h','5h','5.5h','6h'];
+  const ds=[{label:yLabel,data,borderColor:color,backgroundColor:color+'22',borderWidth:2,pointRadius:3,pointBackgroundColor:color,fill:true,tension:.4}];
+  if(refLine)ds.push({label:'Threshold',data:Array(13).fill(refLine),borderColor:'#DC2626',borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false});
+  new Chart(ctx,{type:'line',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{x:{ticks:{color:'#9A928E',font:{size:9}},grid:{color:'#F0EDE8'}},y:{ticks:{color:'#9A928E',font:{size:9}},grid:{color:'#F0EDE8'}}}}});
 }
-
-function drawVitals() {
-  const p=currentPatient; if(!p) return;
-  const seed=parseInt(p.id)%100;
-  Math.seedrandom=()=>{};
-  makeLineChart('mapChart',genTrajectory(p.mapMean,p.mapSlope,2),'#7fb3d5','mmHg',70);
-  makeLineChart('hrChart',genTrajectory(p.hr,0.8,3),'#f39c12','bpm',100);
-  makeLineChart('rrChart',genTrajectory(p.rr,0.1,1),'#2ecc71','insp/min',25);
-  makeLineChart('spo2Chart',genTrajectory(p.spo2,-0.05,.5),'#9b59b6','%',92);
+function drawVitals(){
+  const p=curP;if(!p)return;
+  makeLine('mapChart',genTraj(p.mapMean,p.mapSlope,2),'#1D4ED8','mmHg',70);
+  makeLine('hrChart',genTraj(p.hr,0.8,3),'#B45309','bpm',100);
+  makeLine('rrChart',genTraj(p.rr,0.1,1),'#047857','insp/min',25);
+  makeLine('spo2Chart',genTraj(p.spo2,-0.05,.5),'#7C3AED','%',92);
 }
-
-function drawComorbidity() {
-  const p=currentPatient; if(!p) return;
-  const conditions=[['Heart Failure',p.hf],['Diabetes',p.dm],['Renal Disease',p.renal]];
-  document.getElementById('comorbBadges').innerHTML=conditions.map(([name,val])=>
-    `<span class="comorb-badge ${val?'badge-yes':'badge-no'}">${val?'✓ YES':'✗ NO'}: ${name}</span>`).join('');
+function drawComorbidity(){
+  const p=curP;if(!p)return;
+  document.getElementById('comorbBadges').innerHTML=[['Heart Failure',p.hf],['Diabetes',p.dm],['Renal Disease',p.renal]].map(([n,v])=>`<span class="cb-badge ${v?'badge-yes':'badge-no'}">${v?'✓ YES':'✗ NO'}: ${n}</span>`).join('');
   const ctx=document.getElementById('comorbChart').getContext('2d');
-  if(comorbCI) comorbCI.destroy();
-  comorbCI=new Chart(ctx,{type:'bar',data:{labels:['Heart Failure','Diabetes','Renal Disease'],
-    datasets:[
-      {label:'Cohort Prevalence',data:[38,29,41],backgroundColor:'rgba(213,216,220,.4)',borderColor:'#d5d8dc',borderWidth:1,borderRadius:3},
-      {label:'This Patient',data:[p.hf*100,p.dm*100,p.renal*100],backgroundColor:'rgba(230,176,170,.7)',borderColor:'#e6b0aa',borderWidth:2,borderRadius:3}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{position:'bottom',labels:{color:'#b2bec3',font:{size:11}}}},
-      scales:{x:{ticks:{color:'#7f8c8d',font:{size:11}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#7f8c8d',callback:v=>v+'%'},max:120,grid:{color:'rgba(255,255,255,.04)'}}}}});
+  if(comorbCI)comorbCI.destroy();
+  comorbCI=new Chart(ctx,{type:'bar',data:{labels:['Heart Failure','Diabetes','Renal Disease'],datasets:[
+    {label:'Cohort Prevalence',data:[38,29,41],backgroundColor:'#D4CFC9',borderColor:'#C4BEBB',borderWidth:1,borderRadius:3},
+    {label:'This Patient',data:[p.hf*100,p.dm*100,p.renal*100],backgroundColor:HYPO+'CC',borderColor:HYPO,borderWidth:1.5,borderRadius:3}
+  ]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{color:'#5C524E',font:{size:11},boxWidth:12}}},
+    scales:{x:{ticks:{color:'#9A928E',font:{size:11}},grid:{color:'#F0EDE8'}},y:{ticks:{color:'#9A928E',callback:v=>v+'%'},max:120,grid:{color:'#F0EDE8'}}}}});
 }
-
-function drawRisk() {
-  const p=currentPatient; if(!p) return;
-  // gauges
+function drawRisk(){
+  const p=curP;if(!p)return;
   const mapPct=((p.mapMean-40)/(150-40)*100).toFixed(0);
   document.getElementById('mapNeedle').style.left=mapPct+'%';
   document.getElementById('mapGaugeLabel').textContent='MAP: '+p.mapMean+' mmHg';
   const riskPct=(p.prob*100).toFixed(0);
   document.getElementById('riskNeedle').style.left=riskPct+'%';
   document.getElementById('riskGaugeLabel').textContent='Risk: '+riskPct+'%';
-  // vboxes
-  const isHigh=p.prob>0.28;
-  document.getElementById('riskVbox').style.background=isHigh?'#641e16':'#1a5276';
+  const isH=p.prob>0.28;
+  document.getElementById('riskVbox').className='vbox '+(isH?'red':'blue');
   document.getElementById('riskScore').textContent=riskPct+'%';
-  document.getElementById('statusVbox').style.background=isHigh?'#641e16':'#0e6655';
-  document.getElementById('statusLabel').textContent=isHigh?'High Risk':'Stable';
+  document.getElementById('statusVbox').className='vbox '+(isH?'red':'green');
+  document.getElementById('statusLabel').textContent=isH?'High Risk':'Stable';
   document.getElementById('paramSnapshot').innerHTML=`<tr><td>Subject ID:</td><td>${p.id}</td></tr><tr><td>Mean MAP:</td><td>${p.mapMean} mmHg</td></tr><tr><td>MAP Slope:</td><td>${p.mapSlope.toFixed(2)} mmHg/hr</td></tr>`;
-  document.getElementById('clinicalAdvice').innerHTML=isHigh?
-    '<strong style="color:#e6b0aa">⚠ High Risk Alert:</strong> MAP slope indicates rapid hemodynamic deterioration. Recommend vasopressor protocol review, fluid challenge assessment, and continuous invasive monitoring. Consult attending physician within 15 minutes.':
-    '<strong style="color:#7fb3d5">✓ Stable:</strong> Patient hemodynamic parameters within acceptable range. Continue standard monitoring protocol. Reassess in 2-hour intervals. No immediate intervention required.';
-  // VIP chart
-  const impacts = [
-    {name:'MAP Slope',val:-(p.mapSlope+2)*0.08},
-    {name:'MAP Mean',val:(p.mapMean-75)*(-0.004)},
-    {name:'Heart Rate',val:(p.hr-88)*0.003},
-    {name:'Resp Rate',val:(p.rr-19)*0.006},
-    {name:'Age',val:(p.age-65)*0.002}
-  ].sort((a,b)=>a.val-b.val);
+  document.getElementById('clinicalAdvice').innerHTML=isH?
+    '<strong style="color:#991B1B">⚠ High Risk Alert:</strong> MAP slope indicates rapid hemodynamic deterioration. Recommend vasopressor protocol review and continuous invasive monitoring. Consult attending physician within 15 minutes.':
+    '<strong style="color:#065F46">✓ Stable:</strong> Hemodynamic parameters within acceptable range. Continue standard monitoring protocol. Reassess in 2-hour intervals.';
+  const impacts=[{name:'MAP Slope',val:-(p.mapSlope+2)*.08},{name:'MAP Mean',val:(p.mapMean-75)*(-.004)},{name:'Heart Rate',val:(p.hr-88)*.003},{name:'Resp Rate',val:(p.rr-19)*.006},{name:'Age',val:(p.age-65)*.002}].sort((a,b)=>a.val-b.val);
   const ctx=document.getElementById('vipChart').getContext('2d');
-  if(vipChartInst) vipChartInst.destroy();
-  vipChartInst=new Chart(ctx,{type:'bar',data:{
-    labels:impacts.map(d=>d.name),
-    datasets:[{data:impacts.map(d=>+d.val.toFixed(3)),
-      backgroundColor:impacts.map(d=>d.val>0?'rgba(230,176,170,.8)':'rgba(127,179,213,.8)'),
-      borderColor:impacts.map(d=>d.val>0?'#e6b0aa':'#7fb3d5'),borderWidth:1.5,borderRadius:3}]},
+  if(vipCI)vipCI.destroy();
+  vipCI=new Chart(ctx,{type:'bar',data:{labels:impacts.map(d=>d.name),datasets:[{data:impacts.map(d=>+d.val.toFixed(3)),backgroundColor:impacts.map(d=>d.val>0?HYPO+'CC':STABLE+'CC'),borderColor:impacts.map(d=>d.val>0?HYPO:STABLE),borderWidth:1.5,borderRadius:3}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Contribution: '+(c.raw>0?'+':'')+c.raw}}},
-      scales:{x:{ticks:{color:'#7f8c8d',font:{size:10}},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#b2bec3',font:{size:11}},grid:{display:false}}}}});
+      plugins:{legend:{display:false}},
+      scales:{x:{ticks:{color:'#9A928E',font:{size:10}},grid:{color:'#F0EDE8'}},y:{ticks:{color:'#5C524E',font:{size:11}},grid:{display:false}}}}});
 }
-
-// Init
 initPopChart();
 </script>
 </body>
