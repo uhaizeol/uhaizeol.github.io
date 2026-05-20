@@ -8,31 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0A0A0A;
-  --ink-2:#2A2A2A;
-  --ink-3:#525252;
-  --ink-4:#8C8C8C;
-  --bg:#FFFFFF;
-  --bg-2:#F4F4F3;
-  --bg-3:#EEEEED;
-  --border:#DDDCDB;
-  --border-2:#C8C7C5;
-  --orange:#C2450A;
-  --orange-mid:#E05A0A;
-  --orange-bg:#FFF4EC;
-  --orange-border:#FBCBA0;
-  --blue:#1740C8;
-  --blue-bg:#EBF3FF;
-  --blue-border:#AECBF8;
-  --green:#117A35;
-  --green-bg:#EDFAF2;
-  --green-border:#A3E8BF;
-  --teal:#0B6E67;
-  --teal-bg:#E8FAF8;
-  --teal-border:#8AE0D8;
-  --purple:#6B2FD4;
-  --purple-bg:#F2EDFF;
-  --purple-border:#C9B3F5;
+  --ink:#0A0A0A;--ink-2:#2A2A2A;--ink-3:#525252;--ink-4:#8C8C8C;
+  --bg:#FFFFFF;--bg-2:#F4F4F3;--border:#DDDCDB;--border-2:#C8C7C5;
+  --orange:#C2450A;--orange-mid:#D95C0A;--orange-light:#FFF4EC;--orange-border:#FBCBA0;
+  --dark:#111110;--dark-2:#1A1A18;
+  --blue:#1740C8;--blue-bg:#EBF3FF;--blue-border:#AECBF8;
+  --green:#117A35;--green-bg:#EDFAF2;--green-border:#A3E8BF;
+  --teal:#0B6E67;--teal-bg:#E8FAF8;--teal-border:#8AE0D8;
+  --purple:#6B2FD4;--purple-bg:#F2EDFF;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,9 +29,10 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .nav-links a{font-size:0.73rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
 
-/* HERO */
-.hero{padding:110px 40px 80px;max-width:1100px;margin:0 auto}
-.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+/* ── HERO ── */
+.hero{padding:110px 40px 80px;max-width:1100px;margin:0 auto;position:relative}
+.hero-bg-num{position:absolute;right:-20px;top:80px;font-family:'Instrument Serif',serif;font-size:22vw;color:var(--bg-2);line-height:1;pointer-events:none;user-select:none;z-index:0}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
 .hero-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--orange)}
 .hero-name{font-family:'Instrument Serif',serif;font-size:clamp(3.4rem,5.5vw,6rem);line-height:.94;letter-spacing:-0.025em;margin-bottom:20px;color:var(--ink)}
@@ -61,43 +45,54 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .btn-orange:hover{opacity:.85}
 .btn-outline{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border:1.5px solid var(--border-2);color:var(--ink-2);font-size:0.76rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;border-radius:6px;transition:all .15s}
 .btn-outline:hover{border-color:var(--ink);color:var(--ink)}
-.hero-right{display:flex;flex-direction:column;gap:10px}
+.hero-right{display:flex;flex-direction:column;gap:8px}
 .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .metric-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
 .metric-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
-.metric-card.mo::before{background:var(--orange)}
-.metric-card.mb::before{background:var(--blue)}
-.metric-card.mg::before{background:var(--green)}
-.metric-card.mt::before{background:var(--teal)}
+.mc-o::before{background:var(--orange)} .mc-b::before{background:var(--blue)}
+.mc-g::before{background:var(--green)} .mc-t::before{background:var(--teal)}
 .metric-num{font-family:'Instrument Serif',serif;font-size:2.2rem;line-height:1;letter-spacing:-0.02em;margin-bottom:3px}
 .metric-label{font-size:0.68rem;color:var(--ink-4);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
-.skill-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.skill-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
 .skill-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .chip{font-size:0.71rem;font-weight:500;padding:4px 11px;border-radius:20px;border:1px solid var(--border-2);color:var(--ink-3);background:#fff}
 .mini-label{font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4)}
 
-/* SECTIONS */
-.sec{padding:88px 40px;max-width:1100px;margin:0 auto}
-.sec-full{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.sec-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+/* ── STATS STRIP ── */
+.stats-strip{background:var(--dark);color:#fff;padding:0}
+.stats-inner{max-width:1100px;margin:0 auto;padding:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{padding:0 32px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+.stat-item:first-child{padding-left:0;text-align:left}
+.stat-item:last-child{border-right:none;text-align:right}
+.stat-num{font-family:'Instrument Serif',serif;font-size:2.8rem;line-height:1;letter-spacing:-0.02em;color:var(--orange-mid)}
+.stat-desc{font-size:0.8rem;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.5}
+
+/* ── ABOUT ── */
+.about-wrap{padding:88px 40px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:start}
 .sec-label{font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .sec-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--orange)}
-.sec-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3.1rem);line-height:1.1;color:var(--ink);margin-bottom:36px}
+.sec-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3.1rem);line-height:1.1;color:var(--ink);margin-bottom:24px}
 .sec-title em{font-style:italic;color:var(--ink-4)}
-.divider{width:100%;height:1px;background:var(--border);margin:0 0 52px}
-.sub-label{font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-4);padding:8px 12px;background:var(--bg-3);border-radius:6px;display:inline-block;margin-bottom:20px}
 
-/* CASE CARDS */
+/* ── MANIFESTO STRIP ── */
+.manifesto{background:var(--dark-2);padding:80px 40px;text-align:center}
+.manifesto-inner{max-width:800px;margin:0 auto}
+.manifesto-label{font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-mid);margin-bottom:20px}
+.manifesto-quote{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.3;color:#fff;font-style:italic;margin-bottom:20px}
+.manifesto-sub{font-size:0.9rem;color:rgba(255,255,255,.45);line-height:1.7}
+
+/* ── WORK SECTION ── */
+.work-wrap{padding:88px 40px;max-width:1100px;margin:0 auto}
+.divider{width:100%;height:1px;background:var(--border);margin:0 0 52px}
 .work-stack{display:flex;flex-direction:column;gap:20px}
 .case-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s}
 .case-card:hover{box-shadow:0 8px 40px rgba(0,0,0,.08);transform:translateY(-2px)}
 .case-top{padding:24px 28px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .badge{display:inline-block;font-size:0.61rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
-.bo{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.bo{background:var(--orange-light);color:var(--orange);border:1px solid var(--orange-border)}
 .bb{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
 .bg2{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
 .bt{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-border)}
-.bp{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-border)}
 .case-title{font-family:'Instrument Serif',serif;font-size:1.5rem;color:var(--ink);margin-bottom:5px}
 .case-sub{font-size:0.82rem;color:var(--ink-4);font-style:italic}
 .tags{display:flex;flex-wrap:wrap;gap:5px;flex-shrink:0}
@@ -111,17 +106,18 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .ins-h{font-size:0.61rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px}
 .ins-t{font-family:'Instrument Serif',serif;font-size:1rem;font-style:italic;color:var(--ink);line-height:1.62}
 .mets{grid-column:1/-1;display:flex;gap:28px;padding-top:16px;border-top:1px solid var(--border);flex-wrap:wrap}
-.mn{font-family:'Instrument Serif',serif;font-size:1.7rem;line-height:1;font-weight:400}
-.ml{font-size:0.67rem;color:var(--ink-4);font-weight:500}
+.mn{font-family:'Instrument Serif',serif;font-size:1.7rem;line-height:1}
+.ml{font-size:0.67rem;color:var(--ink-4)}
 .db-embed{grid-column:1/-1;border:1px solid var(--border);border-radius:10px;overflow:hidden;height:400px}
 .db-embed iframe{width:100%;height:100%;border:none}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
 .gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:var(--bg-2)}
 .gal-cap{grid-column:1/-1;font-size:0.69rem;color:var(--ink-4);font-style:italic;margin-top:4px}
 
-/* EXPERIENCE */
-.exp-group{margin-bottom:44px}
-.exp-group:last-child{margin-bottom:0}
+/* ── EXPERIENCE ── */
+.exp-wrap{padding:88px 40px;max-width:1100px;margin:0 auto}
+.sub-label{font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-4);padding:7px 12px;background:var(--bg-2);border-radius:6px;display:inline-block;margin-bottom:20px}
+.exp-group{margin-bottom:0}
 .exp-row{display:grid;grid-template-columns:210px 1fr;gap:40px;padding:24px 0;border-bottom:1px solid var(--border)}
 .exp-row:last-child{border-bottom:none}
 .ep{font-size:0.75rem;color:var(--ink-4);margin-bottom:3px;font-weight:500}
@@ -131,46 +127,59 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .eb li{font-size:0.84rem;color:var(--ink-3);line-height:1.65;padding-left:14px;position:relative}
 .eb li::before{content:'—';position:absolute;left:0;color:var(--ink-4);font-size:0.75rem}
 
-/* PHOTO SECTION */
-.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px}
-.photo-placeholder{aspect-ratio:3/4;border-radius:10px;border:2px dashed var(--border-2);background:var(--bg-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-4);font-size:0.8rem;text-align:center;padding:12px}
-.photo-placeholder .pi{font-size:1.5rem}
-.photo-item{aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
-.photo-item img{width:100%;height:100%;object-fit:cover}
+/* ── PHOTOGRAPHY ── */
+.photo-section{background:var(--dark);padding:88px 40px}
+.photo-inner{max-width:1100px;margin:0 auto}
+.photo-sec-label{font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-mid);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.photo-sec-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--orange-mid)}
+.photo-sec-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3.1rem);line-height:1.1;color:#fff;margin-bottom:16px}
+.photo-sec-title em{font-style:italic;color:rgba(255,255,255,.4)}
+.photo-desc{font-size:0.96rem;color:rgba(255,255,255,.5);line-height:1.8;max-width:520px;margin-bottom:40px}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.photo-grid .row-wide{grid-column:span 2}
+.photo-item{overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:rgba(255,255,255,.05)}
+.photo-item.tall{aspect-ratio:3/4}
+.photo-item.wide{aspect-ratio:16/9}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.photo-item:hover img{transform:scale(1.04)}
+.photo-placeholder{background:rgba(255,255,255,.06);border:1.5px dashed rgba(255,255,255,.15);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(255,255,255,.25);font-size:0.78rem;text-align:center;padding:20px;aspect-ratio:4/3}
 
-/* CONTACT */
-.contact-wrap{padding:88px 40px;max-width:680px;margin:0 auto;text-align:center}
-.contact-title{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.06;margin-bottom:14px}
-.contact-title em{font-style:italic;color:var(--ink-4)}
-.contact-desc{font-size:0.96rem;color:var(--ink-3);margin-bottom:32px;line-height:1.78}
-.contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-.cl{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border:1.5px solid var(--border-2);border-radius:7px;text-decoration:none;color:var(--ink-2);font-size:0.8rem;font-weight:600;transition:all .15s}
-.cl:hover{border-color:var(--ink);color:var(--ink)}
-.cl.primary{background:var(--orange);color:#fff;border-color:var(--orange)}
-.cl.primary:hover{opacity:.88}
-.cl.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-.cl.dark:hover{opacity:.82}
-.contact-details{display:flex;flex-direction:column;gap:8px;align-items:center}
-.contact-detail{display:flex;align-items:center;gap:8px;font-size:0.84rem;color:var(--ink-3)}
-.contact-detail a{color:var(--ink-3);text-decoration:none;transition:color .15s}
-.contact-detail a:hover{color:var(--orange)}
-.contact-detail .icon{font-size:0.9rem;width:18px;text-align:center}
+/* ── CONTACT ── */
+.contact-section{background:var(--orange);padding:88px 40px}
+.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-left{}
+.contact-label{font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px}
+.contact-title{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,4vw,4rem);line-height:1.04;color:#fff;margin-bottom:0}
+.contact-title em{font-style:italic;opacity:.7}
+.contact-right{}
+.contact-desc{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:28px}
+.contact-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.cb-white{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#fff;color:var(--orange);font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:opacity .15s}
+.cb-white:hover{opacity:.9}
+.cb-outline-w{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border:1.5px solid rgba(255,255,255,.4);color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;border-radius:6px;transition:all .15s}
+.cb-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.contact-info{display:flex;flex-direction:column;gap:8px}
+.ci{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:rgba(255,255,255,.7)}
+.ci a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .15s}
+.ci a:hover{color:#fff}
+.ci-icon{width:20px;font-size:0.9rem;flex-shrink:0}
 
-footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
-.fn{font-family:'Instrument Serif',serif;font-size:0.9rem;color:var(--ink-4)}
-.fnt{font-size:0.7rem;color:var(--ink-4)}
+footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06)}
+.fn{font-family:'Instrument Serif',serif;font-size:0.9rem;color:rgba(255,255,255,.35)}
+.fnt{font-size:0.7rem;color:rgba(255,255,255,.25)}
 
 @media(max-width:768px){
   nav,footer{padding:0 16px}
-  .hero,.sec,.contact-wrap{padding-left:16px;padding-right:16px}
-  .hero-inner{grid-template-columns:1fr;gap:36px}
-  .case-top{flex-direction:column}
-  .case-body{grid-template-columns:1fr}
+  .hero,.work-wrap,.exp-wrap,.about-wrap,.photo-section,.contact-section,.manifesto{padding-left:16px;padding-right:16px}
+  .hero-inner,.about-wrap,.contact-inner{grid-template-columns:1fr;gap:36px}
+  .hero-bg-num{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:24px}
+  .stat-item{text-align:center!important;border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:12px 0}
+  .case-top{flex-direction:column}.case-body{grid-template-columns:1fr}
   .exp-row{grid-template-columns:1fr;gap:8px}
   .gal{grid-template-columns:1fr 1fr}
-  .sec-inner{padding:0 16px}
-  .tags{display:none}
   .photo-grid{grid-template-columns:1fr 1fr}
+  .tags{display:none}
 }
 </style>
 </head>
@@ -182,13 +191,14 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#creative">Creative</a></li>
+    <li><a href="#creative">Photography</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <div class="hero">
+  <div class="hero-bg-num">HH</div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Marketing × Data × Creative</div>
@@ -202,22 +212,10 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
     </div>
     <div class="hero-right">
       <div class="metric-grid">
-        <div class="metric-card mo">
-          <div class="metric-num" style="color:var(--orange)">4.0</div>
-          <div class="metric-label">UCLA GPA</div>
-        </div>
-        <div class="metric-card mb">
-          <div class="metric-num" style="color:var(--blue)">500K+</div>
-          <div class="metric-label">User records</div>
-        </div>
-        <div class="metric-card mg">
-          <div class="metric-num" style="color:var(--green)">40%</div>
-          <div class="metric-label">Conversion lift</div>
-        </div>
-        <div class="metric-card mt">
-          <div class="metric-num" style="color:var(--teal)">$62</div>
-          <div class="metric-label">Best CPA found</div>
-        </div>
+        <div class="metric-card mc-o"><div class="metric-num" style="color:var(--orange)">4.0</div><div class="metric-label">UCLA GPA</div></div>
+        <div class="metric-card mc-b"><div class="metric-num" style="color:var(--blue)">500K+</div><div class="metric-label">User records</div></div>
+        <div class="metric-card mc-g"><div class="metric-num" style="color:var(--green)">40%</div><div class="metric-label">Conversion lift</div></div>
+        <div class="metric-card mc-t"><div class="metric-num" style="color:var(--teal)">$62</div><div class="metric-label">Best CPA found</div></div>
       </div>
       <div class="skill-card">
         <div class="mini-label">Core Skills</div>
@@ -226,7 +224,6 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
           <span class="chip">Creative Strategy</span>
           <span class="chip">Funnel Analysis</span>
           <span class="chip">A/B Testing</span>
-          <span class="chip">Segmentation</span>
           <span class="chip">Python · SQL · R</span>
           <span class="chip">Tableau · R Shiny</span>
         </div>
@@ -235,37 +232,67 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
   </div>
 </div>
 
-<!-- ABOUT -->
-<div class="sec-full" id="about">
-  <div class="sec-inner">
-    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start">
-      <div>
-        <div class="sec-label">About</div>
-        <h2 class="sec-title" style="margin-bottom:20px">Data that tells<br><em>stories.</em></h2>
-        <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">I sit at the intersection of <strong style="color:var(--ink);font-weight:600">analytics and creativity</strong> — the kind of marketer who reads data tables and writes ad concepts in the same afternoon.</p>
-        <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">My work spans conversion funnel analysis, customer segmentation, statistical modeling, and performance marketing strategy. I've worked with 500K+ user datasets, built clinical analytics dashboards in R Shiny, and developed full creative strategies for AI products.</p>
-        <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85">I'm drawn to roles where insight drives creative direction — where the question isn't just "what does the data say" but "what should we make next."</p>
-      </div>
-      <div>
-        <div class="mini-label" style="margin-bottom:16px">Education</div>
-        <div style="padding:18px 0;border-bottom:1px solid var(--border)">
-          <div style="font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">UCLA</div>
-          <div style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--ink);margin-bottom:3px">M.S. Data Science in Health</div>
-          <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2025 – Jun 2027 · GPA 4.0 / 4.0 · Los Angeles, CA</div>
-        </div>
-        <div style="padding:18px 0">
-          <div style="font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">Shenzhen University</div>
-          <div style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--ink);margin-bottom:3px">B.A. Business Administration</div>
-          <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2021 – Jun 2025 · GPA 3.94 / 4.0 · Major Rank #1</div>
-          <div style="font-size:0.78rem;color:var(--ink-4);margin-top:2px">Academic Star Scholarship 2022–2024</div>
-        </div>
-      </div>
+<!-- ── STATS STRIP ── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">500K+</div>
+      <div class="stat-desc">User records<br>analyzed in production</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">40%</div>
+      <div class="stat-desc">Lead conversion<br>lift at Jinfuzi</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50K+</div>
+      <div class="stat-desc">ICU patient records<br>queried at UCLA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.0</div>
+      <div class="stat-desc">GPA at UCLA<br>M.S. Data Science</div>
     </div>
   </div>
 </div>
 
-<!-- WORK -->
-<div class="sec" id="work">
+<!-- ── ABOUT ── -->
+<div class="about-wrap" id="about">
+  <div>
+    <div class="sec-label">About</div>
+    <h2 class="sec-title">Data that<br>tells <em>stories.</em></h2>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">I sit at the intersection of <strong style="color:var(--ink);font-weight:600">analytics and creativity</strong> — the kind of marketer who reads data tables and writes ad concepts in the same afternoon.</p>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85;margin-bottom:14px">My work spans conversion funnel analysis, customer segmentation, statistical modeling, and performance marketing strategy. I've worked with 500K+ user datasets, built clinical analytics dashboards in R Shiny, and developed full creative strategies for AI products.</p>
+    <p style="font-size:0.97rem;color:var(--ink-3);line-height:1.85">I'm drawn to roles where insight drives creative direction — where the question isn't just "what does the data say" but "what should we make next."</p>
+  </div>
+  <div>
+    <div class="mini-label" style="margin-bottom:16px">Education</div>
+    <div style="padding:18px 0;border-bottom:1px solid var(--border)">
+      <div style="font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">UCLA</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--ink);margin-bottom:3px">M.S. Data Science in Health</div>
+      <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2025 – Jun 2027 · GPA 4.0 / 4.0 · Los Angeles, CA</div>
+    </div>
+    <div style="padding:18px 0;border-bottom:1px solid var(--border)">
+      <div style="font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px">Shenzhen University</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--ink);margin-bottom:3px">B.A. Business Administration</div>
+      <div style="font-size:0.78rem;color:var(--ink-4)">Sep 2021 – Jun 2025 · GPA 3.94 · Major Rank #1</div>
+    </div>
+    <div style="padding:18px 0">
+      <div class="mini-label" style="margin-bottom:12px">Languages</div>
+      <div style="font-size:0.86rem;color:var(--ink-3)">English (Professional) · Mandarin (Native)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MANIFESTO STRIP ── -->
+<div class="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-label">The Approach</div>
+    <div class="manifesto-quote">"Good data tells you what happened. Good creative decides what happens next. I do both."</div>
+    <div class="manifesto-sub">Performance marketing is not about spending more — it's about finding the emotional territory nobody else has claimed, then testing whether that territory converts.</div>
+  </div>
+</div>
+
+<!-- ── WORK ── -->
+<div class="work-wrap" id="work">
   <div class="sec-label">Selected Work</div>
   <h2 class="sec-title">Case <em>Studies</em></h2>
   <div class="divider"></div>
@@ -281,29 +308,20 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
           <a href="files/LoopNote_GrowthIntern_Assessment_ZihongHuang.pdf" class="dl-btn" target="_blank">↓ Download Full Case Study PDF</a>
         </div>
         <div class="tags">
-          <span class="tag">Competitor Analysis</span>
-          <span class="tag">Creative Research</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">Ad Concepts</span>
-          <span class="tag">Test Plan</span>
+          <span class="tag">Competitor Analysis</span><span class="tag">Creative Research</span>
+          <span class="tag">Data Analysis</span><span class="tag">Ad Concepts</span><span class="tag">Test Plan</span>
         </div>
       </div>
       <div class="case-body">
-        <div>
-          <div class="ch">The Challenge</div>
-          <p class="ct">LoopNote needed a paid social strategy to drive paid trial starts below $90 CPA on Meta and TikTok — in a crowded AI notetaking market dominated by Otter.ai, Fathom, and Granola.</p>
-        </div>
-        <div>
-          <div class="ch">My Approach</div>
-          <p class="ct">Mapped 5 competitors and 8 real benchmark ads. Read performance data from 10 past creatives to find the best-performing format ($62 CPA, screen-record on TikTok). Developed a creative brief, 3 original ad concepts, and a $9,000 two-week test plan.</p>
-        </div>
-        <div class="ins" style="border-left:3px solid var(--orange);background:var(--orange-bg)">
+        <div><div class="ch">The Challenge</div><p class="ct">LoopNote needed a paid social strategy to drive paid trial starts below $90 CPA on Meta and TikTok — in a crowded AI notetaking market dominated by Otter.ai, Fathom, and Granola.</p></div>
+        <div><div class="ch">My Approach</div><p class="ct">Mapped 5 competitors and 8 real benchmark ads. Analyzed performance data from 10 past creatives — found the best format at $62 CPA. Developed a creative brief, 3 original ad concepts, and a $9,000 two-week test plan.</p></div>
+        <div class="ins" style="border-left:3px solid var(--orange);background:var(--orange-light)">
           <div class="ins-h" style="color:var(--orange)">Core Insight</div>
           <p class="ins-t">"Every competitor lives inside the meeting room. Nobody owns the shower idea, the run thought, the 2am voice memo. That uncontested emotional territory became LoopNote's entire campaign direction."</p>
         </div>
         <div class="mets">
           <div><div class="mn" style="color:var(--orange)">5</div><div class="ml">Competitors mapped</div></div>
-          <div><div class="mn" style="color:var(--orange)">8</div><div class="ml">Benchmark ads researched</div></div>
+          <div><div class="mn" style="color:var(--orange)">8</div><div class="ml">Benchmark ads</div></div>
           <div><div class="mn" style="color:var(--orange)">$62</div><div class="ml">Best CPA identified</div></div>
           <div><div class="mn" style="color:var(--orange)">3</div><div class="ml">Original ad concepts</div></div>
           <div><div class="mn" style="color:var(--orange)">$9K</div><div class="ml">Test plan budget</div></div>
@@ -311,38 +329,29 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
       </div>
     </div>
 
-    <!-- MIMIC UCLA -->
+    <!-- MIMIC -->
     <div class="case-card">
       <div class="case-top">
         <div>
           <span class="badge bt">Clinical Data Analysis · UCLA</span>
           <h3 class="case-title">MIMIC-IV ICU Data Analysis</h3>
           <p class="case-sub">Academic Project · Jan – Apr 2026 · University of California, Los Angeles</p>
-          <a href="https://github.com/uhaizeol" class="dl-btn" target="_blank">↗ View R Shiny Dashboard on GitHub</a>
+          <a href="https://github.com/uhaizeol" class="dl-btn" target="_blank">↗ View R Shiny Dashboard</a>
         </div>
         <div class="tags">
-          <span class="tag">SQL</span>
-          <span class="tag">R · R Shiny</span>
-          <span class="tag">Statistical Modeling</span>
-          <span class="tag">Logistic Regression</span>
-          <span class="tag">ggplot2</span>
+          <span class="tag">SQL</span><span class="tag">R · R Shiny</span>
+          <span class="tag">Logistic Regression</span><span class="tag">Mixed-Effects Models</span><span class="tag">ggplot2</span>
         </div>
       </div>
       <div class="case-body">
-        <div>
-          <div class="ch">The Challenge</div>
-          <p class="ct">Investigate hemodynamic outcome variability in ICU patients using the MIMIC-IV clinical database — one of the largest freely-available critical care datasets. Goal: identify significant predictors of MAP trends and ICU outcomes to support clinical decision-making.</p>
-        </div>
-        <div>
-          <div class="ch">What I Did</div>
-          <p class="ct">Extracted and queried 50,000+ ICU patient records using SQL. Applied logistic regression and mixed-effects models. Built an interactive R Shiny dashboard with ggplot2 visualizations — enabling dynamic exploration of patient vitals and clinical outcomes for stakeholders.</p>
-        </div>
+        <div><div class="ch">The Challenge</div><p class="ct">Investigate hemodynamic outcome variability in ICU patients using the MIMIC-IV clinical database — one of the largest freely-available critical care datasets. Identify significant predictors of MAP trends and ICU outcomes.</p></div>
+        <div><div class="ch">What I Did</div><p class="ct">Extracted and queried 50,000+ ICU patient records using SQL. Applied logistic regression and mixed-effects models. Built an interactive R Shiny dashboard with ggplot2 visualizations for dynamic exploration of patient vitals and clinical outcomes.</p></div>
         <div class="ins" style="border-left:3px solid var(--teal);background:var(--teal-bg)">
           <div class="ins-h" style="color:var(--teal)">Key Finding</div>
-          <p class="ins-t">"Identified three significant predictor variables for ICU outcome variability. The R Shiny dashboard translated 50K+ raw clinical records into an interactive tool that clinical stakeholders could actually use — the same translation challenge I apply to marketing data."</p>
+          <p class="ins-t">"Identified three significant predictor variables for ICU outcome variability. The R Shiny dashboard translated 50K+ raw clinical records into a tool stakeholders could actually use — the same translation challenge I apply to marketing data."</p>
         </div>
         <div class="mets">
-          <div><div class="mn" style="color:var(--teal)">50K+</div><div class="ml">ICU patient records</div></div>
+          <div><div class="mn" style="color:var(--teal)">50K+</div><div class="ml">ICU records queried</div></div>
           <div><div class="mn" style="color:var(--teal)">3</div><div class="ml">Significant predictors</div></div>
           <div><div class="mn" style="color:var(--teal)">R Shiny</div><div class="ml">Interactive dashboard</div></div>
         </div>
@@ -358,31 +367,20 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
           <p class="case-sub">Marketing Data Analyst Intern · Apr – Sep 2024 · Shenzhen, China</p>
         </div>
         <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">A/B Testing</span>
-          <span class="tag">Segmentation</span>
+          <span class="tag">Python</span><span class="tag">SQL</span>
+          <span class="tag">Tableau</span><span class="tag">A/B Testing</span><span class="tag">Segmentation</span>
         </div>
       </div>
       <div class="case-body">
-        <div>
-          <div class="ch">The Challenge</div>
-          <p class="ct">The marketing team spent 15+ hours per week on manual reporting with no systematic way to identify high-value customer segments or diagnose where leads dropped out of the Xiaohongshu acquisition funnel.</p>
-        </div>
-        <div>
-          <div class="ch">What I Did</div>
-          <p class="ct">Built customer segmentation models on 500K+ user records using Python and SQL. Designed automated KPI dashboards in Tableau. Conducted A/B testing and multi-step funnel analysis — leading to a 40% lift in lead conversion rate.</p>
-        </div>
+        <div><div class="ch">The Challenge</div><p class="ct">The marketing team spent 15+ hours per week on manual reporting with no systematic way to identify high-value customer segments or diagnose where leads dropped out of the Xiaohongshu acquisition funnel.</p></div>
+        <div><div class="ch">What I Did</div><p class="ct">Built customer segmentation models on 500K+ user records using Python and SQL. Designed automated KPI dashboards in Tableau. Conducted A/B testing and multi-step funnel analysis — leading to a 40% lift in lead conversion.</p></div>
         <div class="ins" style="border-left:3px solid var(--blue);background:var(--blue-bg)">
           <div class="ins-h" style="color:var(--blue)">Key Finding</div>
           <p class="ins-t">"The top 8% of users drove 47% of total revenue — but had never been separately targeted in campaign strategy. Segmentation unlocked a completely different acquisition approach."</p>
         </div>
-        <div class="db-embed">
-          <iframe src="jinfuzi-dashboard.html" title="Jinfuzi Marketing Analytics Dashboard"></iframe>
-        </div>
+        <div class="db-embed"><iframe src="jinfuzi-dashboard.html" title="Jinfuzi Analytics Dashboard"></iframe></div>
         <div class="mets">
-          <div><div class="mn" style="color:var(--blue)">500K+</div><div class="ml">User records analyzed</div></div>
+          <div><div class="mn" style="color:var(--blue)">500K+</div><div class="ml">User records</div></div>
           <div><div class="mn" style="color:var(--blue)">40%</div><div class="ml">Conversion lift</div></div>
           <div><div class="mn" style="color:var(--blue)">75%</div><div class="ml">Reporting time saved</div></div>
           <div><div class="mn" style="color:var(--blue)">15h+</div><div class="ml">Weekly hours freed</div></div>
@@ -399,38 +397,29 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
           <p class="case-sub">Project Leader · Sep 2022 – Dec 2023 · Shenzhen, China</p>
         </div>
         <div class="tags">
-          <span class="tag">UI/UX Contribution</span>
-          <span class="tag">Market Research</span>
-          <span class="tag">Go-to-Market</span>
-          <span class="tag">R · Tableau</span>
-          <span class="tag">Campus Marketing</span>
+          <span class="tag">UI/UX Contribution</span><span class="tag">Market Research</span>
+          <span class="tag">Go-to-Market</span><span class="tag">R · Tableau</span>
         </div>
       </div>
       <div class="case-body">
-        <div>
-          <div class="ch">Product & UI Contribution</div>
-          <p class="ct">Contributed to the app's user flow design and interface layout — working with the product team to ensure the surplus food discovery experience was intuitive for campus users. Informed UI decisions directly from market research feedback on how students preferred to browse and purchase.</p>
-        </div>
-        <div>
-          <div class="ch">Market Research & Go-to-Market</div>
-          <p class="ct">Designed and executed mixed-method market research (N=200+ surveys, stakeholder interviews) to assess demand and competitive landscape for a sustainable food redistribution model. Ran campus brand events and led merchant partnership outreach at Shenzhen University.</p>
-        </div>
+        <div><div class="ch">Product & UI Contribution</div><p class="ct">Contributed to the app's user flow design and interface layout — working with the product team to ensure the surplus food discovery experience was intuitive for campus users. UI decisions were directly informed by market research feedback on how students preferred to browse and purchase.</p></div>
+        <div><div class="ch">Market Research & Go-to-Market</div><p class="ct">Designed and executed mixed-method market research (N=200+ surveys, stakeholder interviews) to assess demand and competitive landscape. Ran campus brand events and led merchant partnership outreach at Shenzhen University.</p></div>
         <div class="ins" style="border-left:3px solid var(--green);background:var(--green-bg)">
           <div class="ins-h" style="color:var(--green)">Strategic Insight</div>
           <p class="ins-t">"University campuses were the highest-density, highest-frequency target — students eat 3 meals a day on campus, making them the ideal first market for testing both product demand and merchant partnership viability simultaneously."</p>
         </div>
         <div style="grid-column:1/-1">
           <div class="gal">
-            <img src="images/onedrop-app-1.png" alt="One Drop app — surplus food discovery interface" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
-            <img src="images/onedrop-app-2.png" alt="One Drop merchant management dashboard" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
-            <img src="images/onedrop-event.jpg" alt="One Drop campus brand event at Shenzhen University" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
+            <img src="images/onedrop-app-1.png" alt="One Drop app user interface" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
+            <img src="images/onedrop-app-2.png" alt="One Drop merchant dashboard" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
+            <img src="images/onedrop-event.jpg" alt="One Drop campus event — Hazel rightmost" onerror="this.style.background='var(--green-bg)';this.removeAttribute('src')">
           </div>
-          <p class="gal-cap">Left & center: One Drop app UI — surplus food discovery and merchant inventory management. Right: Campus marketing event at Shenzhen University (Hazel, rightmost).</p>
+          <p class="gal-cap">App UI (user & merchant views) · Campus marketing event at Shenzhen University (Hazel, rightmost).</p>
         </div>
         <div class="mets">
           <div><div class="mn" style="color:var(--green)">200+</div><div class="ml">Survey respondents</div></div>
-          <div><div class="mn" style="color:var(--green)">25</div><div class="ml">Members recruited/month</div></div>
-          <div><div class="mn" style="color:var(--green)">¥100K</div><div class="ml">Projected overstock reduction/yr</div></div>
+          <div><div class="mn" style="color:var(--green)">25</div><div class="ml">Members/month</div></div>
+          <div><div class="mn" style="color:var(--green)">¥100K</div><div class="ml">Projected overstock reduction</div></div>
         </div>
       </div>
     </div>
@@ -438,154 +427,122 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
   </div>
 </div>
 
-<!-- EXPERIENCE -->
-<div class="sec-full" id="experience">
-  <div class="sec-inner">
+<!-- ── EXPERIENCE ── -->
+<div style="background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="exp-wrap" id="experience">
     <div class="sec-label">Experience</div>
     <h2 class="sec-title">Where I've <em>worked.</em></h2>
     <div class="divider"></div>
 
+    <div class="sub-label">Professional Experience</div>
     <div class="exp-group">
-      <div class="sub-label">Professional Experience</div>
       <div class="exp-row">
-        <div>
-          <div class="ep">Apr 2024 – Sep 2024</div>
-          <div class="ec">Shenzhen Jinfuzi Network Technology</div>
-        </div>
+        <div><div class="ep">Apr 2024 – Sep 2024</div><div class="ec">Shenzhen Jinfuzi Network Technology</div></div>
         <div>
           <div class="et">Marketing Data Analyst Intern</div>
           <ul class="eb">
             <li>Built customer segmentation models (Python, SQL) on 500K+ user records; findings directly shaped digital campaign targeting strategy.</li>
-            <li>Designed automated KPI dashboards (Excel, Tableau) tracking traffic, engagement, conversion rate, and campaign ROI — eliminating 75% of manual reporting workload.</li>
-            <li>Conducted A/B testing and multi-step conversion funnel analysis; recommended optimizations that increased lead conversion rate by 40%.</li>
-            <li>Delivered weekly business analysis reports to senior marketing team synthesizing campaign performance and customer behavior trends.</li>
+            <li>Designed automated KPI dashboards (Tableau) tracking traffic, engagement, conversion rate, and ROI — eliminating 75% of manual reporting workload.</li>
+            <li>Conducted A/B testing and multi-step funnel analysis; recommended optimizations increasing lead conversion rate by 40%.</li>
+            <li>Delivered weekly business analysis reports synthesizing campaign performance and customer behavior trends.</li>
           </ul>
         </div>
       </div>
       <div class="exp-row">
-        <div>
-          <div class="ep">Jul 2023 – Sep 2023</div>
-          <div class="ec">Shenzhen RWD Life Technology</div>
-        </div>
+        <div><div class="ep">Jul 2023 – Sep 2023</div><div class="ec">Shenzhen RWD Life Technology</div></div>
         <div>
           <div class="et">Overseas Marketing Intern</div>
           <ul class="eb">
-            <li>Supported international marketing operations and managed cross-cultural communications with 15+ overseas clients; contributed to B2B customer acquisition strategy.</li>
+            <li>Managed cross-cultural communications with 15+ overseas clients; contributed to B2B customer acquisition strategy for overseas expansion.</li>
             <li>Analyzed sales operations and customer workflows to identify bottlenecks, improving order processing efficiency by 20%.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="exp-group" style="margin-top:48px">
-      <div class="sub-label">Projects & Leadership</div>
+    <div class="sub-label" style="margin-top:44px">Projects & Leadership</div>
+    <div class="exp-group">
       <div class="exp-row">
-        <div>
-          <div class="ep">Feb 2024 – Jun 2025</div>
-          <div class="ec">Int'l Students Entrepreneurship & Employment Union</div>
-        </div>
+        <div><div class="ep">Feb 2024 – Jun 2025</div><div class="ec">Int'l Students Entrepreneurship & Employment Union</div></div>
         <div>
           <div class="et">Chairperson — Digital Marketing Lead</div>
           <ul class="eb">
-            <li>Led digital content marketing campaigns producing 10+ pieces of content per cycle across social media, articles, and video.</li>
-            <li>Designed and executed a QR-based survey campaign collecting 700+ responses; analyzed data to develop targeted engagement initiatives and launched a Peer Buddy Program.</li>
-            <li>Led and mentored a 20+ person student marketing team, managing content calendars, campaign timelines, and performance evaluation.</li>
-            <li>Organized large-scale international cultural festivals featuring 20+ countries.</li>
+            <li>Led digital content marketing campaigns producing 10+ pieces per cycle across social media, articles, and video.</li>
+            <li>Designed a QR-based survey campaign collecting 700+ responses; analyzed data to develop targeted engagement initiatives and launched a Peer Buddy Program.</li>
+            <li>Led and mentored a 20+ person student marketing team; organized large-scale international cultural festivals featuring 20+ countries.</li>
           </ul>
           <div class="gal" style="grid-template-columns:repeat(4,1fr);margin-top:14px">
             <img src="images/iseeu-china-pavilion.png" alt="China pavilion" onerror="this.style.background='var(--purple-bg)';this.removeAttribute('src')">
             <img src="images/iseeu-outdoor.png" alt="ISEEU outdoor event" onerror="this.style.background='var(--purple-bg)';this.removeAttribute('src')">
             <img src="images/iseeu-sudan.jpg" alt="Sudan pavilion" onerror="this.style.background='var(--purple-bg)';this.removeAttribute('src')">
-            <img src="images/iseeu-dragon.png" alt="Dragon dance performance" onerror="this.style.background='var(--purple-bg)';this.removeAttribute('src')">
+            <img src="images/iseeu-dragon.png" alt="Dragon dance" onerror="this.style.background='var(--purple-bg)';this.removeAttribute('src')">
           </div>
-          <p style="font-size:0.69rem;color:var(--ink-4);font-style:italic;margin-top:6px">International cultural festivals — 20+ countries, traditional performances, cross-cultural exchange.</p>
         </div>
       </div>
       <div class="exp-row">
-        <div>
-          <div class="ep">Sep 2022 – Dec 2023</div>
-          <div class="ec">One Drop Sustainable Startup</div>
-        </div>
+        <div><div class="ep">Sep 2022 – Dec 2023</div><div class="ec">One Drop Sustainable Startup</div></div>
         <div>
           <div class="et">Project Leader — Market Research</div>
           <ul class="eb">
-            <li>Led mixed-method market research (N=200+ surveys, stakeholder interviews) to assess demand and competitive landscape for a sustainable food redistribution app.</li>
-            <li>Contributed to app UI/UX design and user flow — translating research findings into product decisions.</li>
+            <li>Led mixed-method market research (N=200+ surveys, interviews) to assess demand and competitive landscape for a sustainable food redistribution app.</li>
+            <li>Contributed to app UI/UX design and user flow — translating research findings directly into product decisions.</li>
             <li>Campus brand events recruited ~25 members/month; projected overstock reduction of ¥100,000/year.</li>
           </ul>
         </div>
       </div>
       <div class="exp-row">
-        <div>
-          <div class="ep">May 2022 – Oct 2023</div>
-          <div class="ec">AI-Based Tuberculosis Detection Startup</div>
-        </div>
+        <div><div class="ep">May 2022 – Oct 2023</div><div class="ec">AI Tuberculosis Detection Startup</div></div>
         <div>
           <div class="et">Head of Commercialization</div>
           <ul class="eb">
-            <li>Conducted healthcare market analysis and competitive research to develop customer segmentation and go-to-market strategy for an AI-powered medical diagnostic product.</li>
-            <li>Visualized adoption trend data in R and Tableau; defined product positioning and value propositions presented to institutional stakeholders.</li>
+            <li>Conducted healthcare market analysis and competitive research; developed customer segmentation and go-to-market strategy for an AI-powered medical diagnostic product.</li>
+            <li>Visualized adoption trend data in R and Tableau; defined product positioning presented to institutional stakeholders.</li>
           </ul>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- CREATIVE / PHOTOGRAPHY -->
-<div class="sec" id="creative">
-  <div class="sec-label">Beyond Work</div>
-  <h2 class="sec-title">Photography <em>& Visual</em></h2>
-  <div class="divider"></div>
-  <p style="font-size:0.96rem;color:var(--ink-3);line-height:1.8;max-width:580px;margin-bottom:32px">Photography is how I stay observant — the same instinct that makes a good ad hook makes a good photograph. I'm drawn to candid moments, light, and the stories that live in everyday scenes.</p>
-  <div class="photo-grid">
-    <!-- Replace these placeholders with your actual photos -->
-    <div class="photo-placeholder">
-      <span class="pi">📷</span>
-      <span>Add photo here</span>
-    </div>
-    <div class="photo-placeholder">
-      <span class="pi">📷</span>
-      <span>Add photo here</span>
-    </div>
-    <div class="photo-placeholder">
-      <span class="pi">📷</span>
-      <span>Add photo here</span>
-    </div>
-    <div class="photo-placeholder">
-      <span class="pi">📷</span>
-      <span>Add photo here</span>
+<!-- ── PHOTOGRAPHY ── -->
+<div class="photo-section" id="creative">
+  <div class="photo-inner">
+    <div class="photo-sec-label">Beyond Work</div>
+    <h2 class="photo-sec-title">Photography <em>& Visual</em></h2>
+    <p class="photo-desc">Photography is how I stay observant — the same instinct that makes a good ad hook makes a good photograph. I'm drawn to candid moments, light, and the stories that live in everyday scenes.</p>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="images/photo1.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo1.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo2.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo2.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo3.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo3.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo4.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo4.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo5.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo5.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo6.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo6.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo7.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo7.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo8.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo8.jpg</span>'"></div>
+      <div class="photo-item"><img src="images/photo9.jpg" alt="Photography by Hazel Huang" onerror="this.parentNode.className+=' photo-placeholder';this.parentNode.innerHTML='<span>📷</span><span style=font-size:0.75rem;color:rgba(255,255,255,.3)>photo9.jpg</span>'"></div>
     </div>
   </div>
-  <p style="font-size:0.72rem;color:var(--ink-4);margin-top:12px;font-style:italic">Upload your photos to the images/ folder and replace the placeholders above with img tags.</p>
 </div>
 
-<!-- CONTACT -->
-<div class="sec-full" style="padding:80px 0">
-  <div class="contact-wrap" id="contact" style="padding:0 40px">
-    <div class="sec-label" style="justify-content:center">Get In Touch</div>
-    <h2 class="contact-title">Let's make something <em>sharp.</em></h2>
-    <p class="contact-desc">Open to marketing and growth opportunities — internships, part-time roles, or project collaborations at the intersection of data and creative strategy.</p>
-    <div class="contact-links">
-      <a href="mailto:HazelHuang1007@ucla.edu" class="cl primary">✉ Email Me</a>
-      <a href="https://linkedin.com/in/zihong-huang-9288a4385" class="cl dark" target="_blank">↗ LinkedIn</a>
-      <a href="https://github.com/uhaizeol" class="cl" target="_blank">↗ GitHub</a>
-      <a href="files/Hazel_Huang_Resume.pdf" class="cl" target="_blank">↓ Resume</a>
+<!-- ── CONTACT ── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="contact-label">Get In Touch</div>
+      <h2 class="contact-title">Let's make<br>something <em>sharp.</em></h2>
     </div>
-    <div class="contact-details">
-      <div class="contact-detail">
-        <span class="icon">✉</span>
-        <a href="mailto:HazelHuang1007@ucla.edu">HazelHuang1007@ucla.edu</a>
+    <div class="contact-right">
+      <p class="contact-desc">Open to marketing and growth opportunities — internships, part-time roles, or project collaborations at the intersection of data and creative strategy.</p>
+      <div class="contact-btns">
+        <a href="mailto:HazelHuang1007@ucla.edu" class="cb-white">✉ Email Me</a>
+        <a href="https://linkedin.com/in/zihong-huang-9288a4385" class="cb-outline-w" target="_blank">↗ LinkedIn</a>
+        <a href="https://github.com/uhaizeol" class="cb-outline-w" target="_blank">↗ GitHub</a>
+        <a href="files/Hazel_Huang_Resume.pdf" class="cb-outline-w" target="_blank">↓ Resume</a>
       </div>
-      <div class="contact-detail">
-        <span class="icon">📞</span>
-        <!-- Add your phone number here -->
-        <a href="tel:+14244676727">+1 (424) 467-6727</a>
-      </div>
-      <div class="contact-detail">
-        <span class="icon">📍</span>
-        <span>Los Angeles, CA · Open to relocation</span>
+      <div class="contact-info">
+        <div class="ci"><span class="ci-icon">✉</span><a href="mailto:HazelHuang1007@ucla.edu">HazelHuang1007@ucla.edu</a></div>
+        <div class="ci"><span class="ci-icon">📞</span><a href="tel:+14244676727">+1 (424) 467-6727</a></div>
+        <div class="ci"><span class="ci-icon">📍</span><span>Los Angeles, CA · Open to relocation</span></div>
       </div>
     </div>
   </div>
@@ -593,7 +550,7 @@ footer{border-top:1px solid var(--border);padding:16px 40px;display:flex;justify
 
 <footer>
   <span class="fn">Hazel Huang</span>
-  <span class="fnt">Data × Creative × Strategy · Los Angeles, CA · 2025</span>
+  <span class="fnt">Data × Creative × Strategy · Los Angeles, CA</span>
 </footer>
 
 </body>
