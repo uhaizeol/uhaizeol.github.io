@@ -49,8 +49,8 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:100;background:rgba(255,255,25
 .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .metric-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
 .metric-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
-.mc-o::before{background:var(--orange)} .mc-b::before{background:var(--blue)}
-.mc-g::before{background:var(--green)} .mc-t::before{background:var(--teal)}
+.mc-all::before{background:var(--orange)} 
+ 
 .metric-num{font-family:'Instrument Serif',serif;font-size:2.2rem;line-height:1;letter-spacing:-0.02em;margin-bottom:3px}
 .metric-label{font-size:0.68rem;color:var(--ink-4);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
 .skill-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
@@ -212,10 +212,10 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
     </div>
     <div class="hero-right">
       <div class="metric-grid">
-        <div class="metric-card mc-o"><div class="metric-num" style="color:var(--orange)">4.0</div><div class="metric-label">UCLA GPA</div></div>
-        <div class="metric-card mc-b"><div class="metric-num" style="color:var(--orange)">500K+</div><div class="metric-label">User records</div></div>
-        <div class="metric-card mc-g"><div class="metric-num" style="color:var(--green)">40%</div><div class="metric-label">Conversion lift</div></div>
-        <div class="metric-card mc-t"><div class="metric-num" style="color:var(--teal)">$62</div><div class="metric-label">Best CPA found</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">700+</div><div class="metric-label">Survey responses led</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">500K+</div><div class="metric-label">User records</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">40%</div><div class="metric-label">Conversion lift</div></div>
+        <div class="metric-card mc-all"><div class="metric-num" style="color:var(--orange)">$62</div><div class="metric-label">Best CPA found</div></div>
       </div>
       <div class="skill-card">
         <div class="mini-label">Core Skills</div>
@@ -355,6 +355,7 @@ footer{background:var(--dark);padding:16px 40px;display:flex;justify-content:spa
           <img src="images/rshiny.jpg" alt="R Shiny ICU Dashboard — Hypo-Alert System v2.5" style="width:100%;border-radius:10px;border:1px solid var(--border);display:block" onerror="this.style.display='none'">
           <p style="font-size:0.69rem;color:var(--ink-4);font-style:italic;margin-top:6px">Hypo-Alert System v2.5 — Interactive R Shiny dashboard for ICU hypotension risk prediction. Built on MIMIC-IV dataset (50K+ patient records).</p>
         </div>
+        <div class="db-embed"><iframe src="mimic-dashboard.html" title="MIMIC-IV Hypo-Alert Interactive Dashboard"></iframe></div>
         <div class="mets">
           <div><div class="mn" style="color:var(--teal)">50K+</div><div class="ml">ICU records queried</div></div>
           <div><div class="mn" style="color:var(--teal)">3</div><div class="ml">Significant predictors</div></div>
@@ -608,8 +609,7 @@ fs.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x
     <div class="contact-right">
       <p class="contact-desc">Open to marketing and growth opportunities — internships, part-time roles, or project collaborations at the intersection of data and creative strategy.</p>
       <div class="contact-btns">
-        <a href="mailto:HazelHuang1007@ucla.edu" class="cb-white">✉ Email Me</a>
-        <button onclick="navigator.clipboard.writeText('HazelHuang1007@ucla.edu').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='Copy Email',2000)})" class="cb-outline-w" style="cursor:pointer;border:none;font-family:inherit">Copy Email</button>
+        <button onclick="navigator.clipboard.writeText('HazelHuang1007@ucla.edu').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='✉ Copy Email',2000)})" class="cb-white" style="cursor:pointer;border:none;font-family:inherit;font-size:0.78rem;font-weight:600;letter-spacing:0.05em">✉ Copy Email</button>
         <a href="https://linkedin.com/in/zihong-huang-9288a4385" class="cb-outline-w" target="_blank">↗ LinkedIn</a>
         <a href="https://github.com/uhaizeol" class="cb-outline-w" target="_blank">↗ GitHub</a>
         <a href="files/Hazel_Huang_Resume.pdf" class="cb-outline-w" download>↓ Resume PDF</a>
