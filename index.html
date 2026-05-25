@@ -8,25 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0A0A0A;
-  --ink-2:#2C2420;
-  --ink-3:#5C524E;
-  --ink-4:#9A928E;
-  --ink-5:#C4BEBB;
-  --bg:#FFFFFF;
-  --bg-2:#FAF9F7;
-  --bg-3:#F5F2EE;
-  --border:#E8E4DF;
-  --border-2:#D4CFC9;
-  --brown:#2C1810;
-  --brown-mid:#4A3228;
+  --ink:#0F0F14;
+  --ink-2:#26262E;
+  --ink-3:#5C5C70;
+  --ink-4:#9898AC;
+  --ink-5:#C4C4D4;
+  --bg:#F8F8FC;
+  --bg-2:#F2F2F7;
+  --bg-3:#EAEAF2;
+  --border:#DDDDE8;
+  --border-2:#C4C4D4;
+  --brown:#0C0C14;
+  --brown-mid:#14141E;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,248,252,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
 .nav-name{font-family:'Instrument Serif',serif;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:.01em}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:0.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-decoration:none;transition:color .15s}
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .hero-right{display:flex;flex-direction:column;gap:8px}
 .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .metric-card{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
-.metric-num{font-family:'Instrument Serif',serif;font-size:2.1rem;line-height:1;letter-spacing:-.02em;margin-bottom:3px;color:var(--ink)}
+.metric-num{font-family:'Instrument Serif',serif;font-size:2.1rem;line-height:1;letter-spacing:-.02em;margin-bottom:3px;color:#7C3AED}
 .metric-label{font-size:0.68rem;color:var(--ink-4);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .skill-card{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:14px 18px}
 .skill-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .stat-item{padding:0 24px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
 .stat-item:first-child{padding-left:0;text-align:left}
 .stat-item:last-child{border-right:none;text-align:right}
-.stat-num{font-family:'Instrument Serif',serif;font-size:2.6rem;line-height:1;letter-spacing:-.02em;color:#F5F2EE}
+.stat-num{font-family:'Instrument Serif',serif;font-size:2.6rem;line-height:1;letter-spacing:-.02em;color:#A78BFA}
 .stat-desc{font-size:0.78rem;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.5}
 
 /* ABOUT */
@@ -83,12 +83,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 
 /* CASE CARD — results first */
 .case-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .2s,transform .2s;margin-bottom:16px}
-.case-card:hover{box-shadow:0 8px 40px rgba(44,24,16,.08);transform:translateY(-2px)}
+.case-card:hover{box-shadow:0 8px 40px rgba(124,58,237,.08);transform:translateY(-2px)}
 
 /* results bar — top of card */
 .case-results{background:var(--bg-3);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;gap:32px;flex-wrap:wrap;align-items:center}
 .result-item{}
-.result-num{font-family:'Instrument Serif',serif;font-size:1.8rem;line-height:1;color:var(--ink);letter-spacing:-.02em}
+.result-num{font-family:'Instrument Serif',serif;font-size:1.8rem;line-height:1;color:#8B5CF6;letter-spacing:-.02em}
 .result-label{font-size:0.68rem;color:var(--ink-4);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
 .result-divider{width:1px;height:40px;background:var(--border-2);flex-shrink:0}
 
@@ -103,7 +103,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .case-body{padding:20px 28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .ch{font-size:0.61rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
 .ct{font-size:0.88rem;color:var(--ink-3);line-height:1.75}
-.ins{grid-column:1/-1;border-left:2px solid var(--ink);background:var(--bg-3);border-radius:0 6px 6px 0;padding:13px 16px}
+.ins{grid-column:1/-1;border-left:2px solid #7C3AED;background:var(--bg-3);border-radius:0 6px 6px 0;padding:13px 16px}
 .ins-h{font-size:0.61rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
 .ins-t{font-family:'Instrument Serif',serif;font-size:1rem;font-style:italic;color:var(--ink);line-height:1.62}
 .db-embed{grid-column:1/-1;border:1px solid var(--border);border-radius:8px;overflow:hidden;height:400px}
@@ -129,20 +129,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .film-header{padding:0 40px;margin-bottom:36px;max-width:1080px;margin-left:auto;margin-right:auto}
 .film-scroll{display:flex;gap:6px;overflow-x:auto;padding:0 24px;scrollbar-width:none;cursor:grab;align-items:center;padding-top:8px;padding-bottom:8px}
 .film-scroll::-webkit-scrollbar{display:none}
-.film-frame{flex-shrink:0;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.film-frame{flex-shrink:0;border-radius:4px;overflow:hidden;border:1px solid rgba(0,0,0,.08);background:rgba(0,0,0,.04)}
 .film-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .film-frame:hover img{transform:scale(1.06)}
 .film-perf-row{display:flex;gap:10px;padding:0 24px;overflow:hidden}
-.perf{width:20px;height:22px;background:rgba(255,255,255,.07);border-radius:3px;flex-shrink:0}
+.perf{width:20px;height:22px;background:rgba(0,0,0,.08);border-radius:3px;flex-shrink:0}
 
 /* CONTACT */
 .contact-section{background:var(--brown);border-top:1px solid rgba(255,255,255,.08);padding:80px 40px}
 .contact-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.contact-title{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.06;color:#F5F2EE}
-.contact-title em{font-style:italic;opacity:.5}
+.contact-title{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.06;color:#FFFFFF}
+.contact-title em{font-style:italic;opacity:1;color:#A78BFA}
 .contact-desc{font-size:0.96rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px}
 .contact-btns{display:flex;gap:8px;flex-wrap:nowrap;margin-bottom:28px;overflow-x:auto}
-.cb-white{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:#F5F2EE;color:var(--brown);font-size:0.76rem;font-weight:700;letter-spacing:.04em;text-decoration:none;border-radius:5px;transition:opacity .15s;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
+.cb-white{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:#F2F2F7;color:#0C0C14;font-size:0.76rem;font-weight:700;letter-spacing:.04em;text-decoration:none;border-radius:5px;transition:opacity .15s;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
 .cb-white:hover{opacity:.88}
 .cb-outline-w{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);font-size:0.76rem;font-weight:600;letter-spacing:.04em;text-decoration:none;border-radius:5px;transition:all .15s;white-space:nowrap}
 .cb-outline-w:hover{border-color:rgba(255,255,255,.7);color:#fff}
@@ -151,7 +151,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .ci a{color:rgba(255,255,255,.45);text-decoration:none}
 .ci-icon{font-size:0.82rem;opacity:.5;width:16px}
 
-footer{background:#6B5040;border-top:1px solid rgba(255,255,255,.12);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
+footer{background:#080810;border-top:1px solid rgba(255,255,255,.07);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
 .fn{font-family:'Instrument Serif',serif;font-size:0.9rem;color:rgba(255,255,255,.75)}
 .fnt{font-size:0.7rem;color:rgba(255,255,255,.55)}
 
@@ -517,7 +517,7 @@ footer{background:#6B5040;border-top:1px solid rgba(255,255,255,.12);padding:16p
 </div>
 
 <!-- FILM STRIP -->
-<div class="film-section" id="creative" style="background:#6B5040;position:relative;overflow:hidden">
+<div class="film-section" id="creative" style="background:#E8E8F0;position:relative;overflow:hidden">
   <!-- marble grain texture layers -->
   <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <defs>
@@ -534,9 +534,9 @@ footer{background:#6B5040;border-top:1px solid rgba(255,255,255,.12);padding:16p
     <rect width="100%" height="100%" filter="url(#grain)" opacity="0.04"/>
   </svg>
   <div class="film-header">
-    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px">Beyond Work</div>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#F5F2EE;margin-bottom:14px">Photography <em style="font-style:italic;color:rgba(255,255,255,.55)">& Visual</em></h2>
-    <p style="font-size:0.96rem;color:rgba(255,255,255,.65);line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
+    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9898AC;margin-bottom:10px">Beyond Work</div>
+    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#0F0F14;margin-bottom:14px">Photography <em style="font-style:italic;color:#9898AC">& Visual</em></h2>
+    <p style="font-size:0.96rem;color:#5C5C70;line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
   </div>
   <div class="film-perf-row" style="margin-bottom:4px">
     <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
@@ -555,15 +555,15 @@ footer{background:#6B5040;border-top:1px solid rgba(255,255,255,.12);padding:16p
   <div class="film-perf-row" style="margin-top:4px">
     <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
   </div>
-  <div style="text-align:center;margin-top:16px;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.08em">← DRAG TO SCROLL →</div>
+  <div style="text-align:center;margin-top:16px;font-size:11px;color:#9898AC;letter-spacing:.08em">← DRAG TO SCROLL →</div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact-section" id="contact" style="background:linear-gradient(135deg,#1A0F0A 0%,#2C1810 40%,#1A0F0A 100%);position:relative;overflow:hidden"><div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse at center,rgba(245,242,238,0.18) 0%,rgba(245,242,238,0.09) 35%,rgba(245,242,238,0.03) 60%,transparent 80%);pointer-events:none;border-radius:50%"></div>
+<div class="contact-section" id="contact" style="background:linear-gradient(135deg,#08080F 0%,#0C0C14 40%,#08080F 100%);position:relative;overflow:hidden"><div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse at center,rgba(245,242,238,0.18) 0%,rgba(245,242,238,0.09) 35%,rgba(245,242,238,0.03) 60%,transparent 80%);pointer-events:none;border-radius:50%"></div>
   <div class="contact-inner">
     <div>
       <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px">Get In Touch</div>
-      <h2 class="contact-title">Let's make<br>something <em style="color:#C4BEBB">worth making!</em></h2>
+      <h2 class="contact-title">Let's make<br>something <em style="color:#A78BFA">worth making!</em></h2>
     </div>
     <div>
       <p class="contact-desc">Open to roles in marketing analytics, business analysis, growth strategy, and any work that lives at the intersection of data and creative thinking.</p>
