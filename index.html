@@ -167,6 +167,8 @@ footer{background:#080810;border-top:1px solid rgba(255,255,255,.07);padding:16p
   .tags{display:none}
   .case-results{gap:16px}
 }
+
+@keyframes filmLoop{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 </style>
 </head>
 <body>
@@ -517,45 +519,57 @@ footer{background:#080810;border-top:1px solid rgba(255,255,255,.07);padding:16p
 </div>
 
 <!-- FILM STRIP -->
-<div class="film-section" id="creative" style="background:#D4D4E0;position:relative;overflow:hidden">
-  <!-- marble grain texture layers -->
-  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <filter id="grain" x="0%" y="0%" width="100%" height="100%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" result="noise"/>
-        <feColorMatrix type="saturate" values="0" in="noise"/>
-      </filter>
-      <filter id="veins" x="0%" y="0%" width="100%" height="100%">
-        <feTurbulence type="turbulence" baseFrequency="0.013 0.007" numOctaves="6" seed="23" result="t"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0 0.90  0 0 0 12 -5" in="t"/>
-      </filter>
-    </defs>
-    <rect width="100%" height="100%" filter="url(#veins)" opacity="0.07"/>
-    <rect width="100%" height="100%" filter="url(#grain)" opacity="0.04"/>
-  </svg>
-  <div class="film-header">
-    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9898AC;margin-bottom:10px">Beyond Work</div>
+<div class="film-section" id="creative" style="background:#C2C2D4;position:relative;overflow:hidden">
+
+  <!-- iridescent shimmer overlays -->
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(196,181,253,0.12) 0%,rgba(167,139,250,0.06) 35%,rgba(139,92,246,0.10) 65%,rgba(196,181,253,0.08) 100%);pointer-events:none;z-index:0"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(200deg,transparent 20%,rgba(167,139,250,0.08) 50%,transparent 80%);pointer-events:none;z-index:0"></div>
+
+  <div class="film-header" style="position:relative;z-index:1">
+    <div style="font-size:0.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6A6A84;margin-bottom:10px">Beyond Work</div>
     <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#0F0F14;margin-bottom:14px">Photography <em style="font-style:italic;color:#8B5CF6">& Visual</em></h2>
-    <p style="font-size:0.96rem;color:#5C5C70;line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
+    <p style="font-size:0.96rem;color:#4A4A5E;line-height:1.8;max-width:500px">Photography is how I stay observant — the same instinct that makes a good insight makes a good photograph.</p>
   </div>
-  <div class="film-perf-row" style="margin-bottom:4px">
-    <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+
+  <!-- perf top - auto scroll -->
+  <div style="overflow:hidden;position:relative;z-index:1;margin-bottom:4px">
+    <div style="display:flex;gap:10px;width:max-content;animation:filmLoop 8s linear infinite">
+      <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+    </div>
   </div>
-  <div class="film-scroll" id="filmScroll" style="background:rgba(0,0,0,.2)">
-    <div class="film-frame" style="width:180px;height:240px"><img src="images/photo1.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:280px;height:180px"><img src="images/photo2.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:200px;height:240px"><img src="images/photo3.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:220px;height:160px"><img src="images/photo4.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:160px;height:240px"><img src="images/photo5.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:300px;height:180px"><img src="images/photo6.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:190px;height:240px"><img src="images/photo7.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:240px;height:170px"><img src="images/photo8.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
-    <div class="film-frame" style="width:170px;height:240px"><img src="images/photo9.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(255,255,255,.04)';this.style.display='none'"></div>
+
+  <!-- auto-loop film strip -->
+  <div style="overflow:hidden;position:relative;z-index:1">
+    <div style="display:flex;gap:6px;width:max-content;background:rgba(0,0,0,.12);padding:8px 0;animation:filmLoop 30s linear infinite">
+      <div class="film-frame" style="width:180px;height:240px"><img src="images/photo1.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:280px;height:180px"><img src="images/photo2.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:200px;height:240px"><img src="images/photo3.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:220px;height:160px"><img src="images/photo4.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:160px;height:240px"><img src="images/photo5.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:300px;height:180px"><img src="images/photo6.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:190px;height:240px"><img src="images/photo7.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:240px;height:170px"><img src="images/photo8.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:170px;height:240px"><img src="images/photo9.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="film-frame" style="width:180px;height:240px"><img src="images/photo1.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:280px;height:180px"><img src="images/photo2.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:200px;height:240px"><img src="images/photo3.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:220px;height:160px"><img src="images/photo4.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:160px;height:240px"><img src="images/photo5.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:300px;height:180px"><img src="images/photo6.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:190px;height:240px"><img src="images/photo7.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:240px;height:170px"><img src="images/photo8.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+      <div class="film-frame" style="width:170px;height:240px"><img src="images/photo9.jpg" alt="Photo by Hazel" onerror="this.parentNode.style.background='rgba(139,92,246,.12)';this.style.display='none'"></div>
+    </div>
   </div>
-  <div class="film-perf-row" style="margin-top:4px">
-    <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+
+  <!-- perf bottom - auto scroll -->
+  <div style="overflow:hidden;position:relative;z-index:1;margin-top:4px">
+    <div style="display:flex;gap:10px;width:max-content;animation:filmLoop 8s linear infinite">
+      <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+    </div>
   </div>
-  <div style="text-align:center;margin-top:16px;font-size:11px;color:#9898AC;letter-spacing:.08em">← DRAG TO SCROLL →</div>
+
 </div>
 
 <!-- CONTACT -->
@@ -596,12 +610,7 @@ footer{background:#080810;border-top:1px solid rgba(255,255,255,.07);padding:16p
 </footer>
 
 <script>
-const fs=document.getElementById('filmScroll');
-let isDown=false,startX,scrollLeft;
-fs.addEventListener('mousedown',e=>{isDown=true;fs.style.cursor='grabbing';startX=e.pageX-fs.offsetLeft;scrollLeft=fs.scrollLeft});
-fs.addEventListener('mouseleave',()=>{isDown=false;fs.style.cursor='grab'});
-fs.addEventListener('mouseup',()=>{isDown=false;fs.style.cursor='grab'});
-fs.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-fs.offsetLeft;fs.scrollLeft=scrollLeft-(x-startX)*1.5});
+// film strip auto-loops via CSS animation
 </script>
 </body>
 </html>
